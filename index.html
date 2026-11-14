@@ -71,6 +71,50 @@
   ul.feats li { border: 2px solid var(--line); padding: 10px 12px; color: var(--stone); }
   ul.feats li::before { content: "▪ "; color: var(--violet-hi); }
 
+  ul.feats li.expand { padding: 0; border-color: var(--violet); }
+  ul.feats li.expand::before { content: none; }
+  button.feat-btn {
+    all: unset; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center;
+    width: 100%; padding: 10px 12px; cursor: pointer; color: var(--text); font: inherit;
+  }
+  button.feat-btn::before { content: "▪ "; color: var(--violet-hi); white-space: pre; }
+  button.feat-btn .chev { margin-left: auto; color: var(--violet-hi); transition: transform .15s; }
+  button.feat-btn[aria-expanded="true"] { background: var(--violet); }
+  button.feat-btn[aria-expanded="true"] .chev { transform: rotate(90deg); color: #fff; }
+  button.feat-btn:hover { background: #221e2e; }
+  button.feat-btn[aria-expanded="true"]:hover { background: var(--violet-hi); }
+
+  #classes { margin-top: 18px; border-top: 2px dashed var(--line); padding-top: 18px; }
+  #classes[hidden] { display: none; }
+  .stance-note { color: var(--stone-dim); font-size: 20px; margin: 0 0 14px; }
+  .stance-note b { color: var(--text); font-weight: normal; }
+  .picker { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+  @media (max-width: 640px) { .picker { grid-template-columns: repeat(4, 1fr); } }
+  .picker button {
+    font: inherit; cursor: pointer; background: #0e0d13; color: var(--stone-dim);
+    border: 2px solid var(--line); padding: 8px 4px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  }
+  .picker button .ico { font-size: 26px; line-height: 1; }
+  .picker button .nm { font-family: "Silkscreen", monospace; font-size: 10px; letter-spacing: .5px; }
+  .picker button:hover { border-color: var(--web); color: var(--text); }
+  .picker button[aria-selected="true"] { border-color: var(--c, var(--violet-hi)); color: #fff; box-shadow: inset 0 -4px 0 var(--c, var(--violet-hi)); }
+  .cls { margin-top: 12px; background: #0e0d13; border: 2px solid var(--c, var(--violet)); padding: 16px 18px; box-shadow: 4px 4px 0 #000; }
+  .cls-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+  .cls-head h3 { font-family: "Silkscreen", monospace; font-size: 22px; margin: 0; color: var(--c, var(--stone)); }
+  .role { font-family: "Silkscreen", monospace; font-size: 11px; background: var(--c, var(--violet)); color: #0b0a0e; padding: 3px 7px; letter-spacing: 1px; }
+  .title50 { color: var(--muted); font-size: 18px; margin-left: auto; }
+  .cls p.desc { margin: 8px 0 12px; font-size: 22px; }
+  .cls-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 640px) { .cls-cols { grid-template-columns: 1fr; } }
+  .cls h4 { font-family: "Silkscreen", monospace; font-size: 12px; color: var(--muted); letter-spacing: 1px; margin: 0 0 6px; }
+  .cls ul { list-style: none; margin: 0; padding: 0; }
+  .cls li { padding: 3px 0; color: var(--stone); font-size: 20px; }
+  .cls li b { color: var(--text); font-weight: normal; }
+  .cls li i { color: var(--muted); font-style: normal; font-size: 17px; }
+  .stats { display: grid; grid-template-columns: auto 1fr; gap: 3px 8px; align-items: center; margin-top: 12px; font-size: 18px; color: var(--muted); }
+  .bar { height: 8px; background: #1d1a26; }
+  .bar span { display: block; height: 100%; background: var(--c, var(--violet-hi)); }
+
   .join { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   @media (max-width: 640px) { .join { grid-template-columns: 1fr; } }
   .edition { font-family: "Silkscreen", monospace; font-size: 14px; color: var(--muted); letter-spacing: 1px; }
@@ -126,13 +170,19 @@
     <div class="card">
       <p class="pitch">Too many mods. Too much bloat. So we went back to <b>vanilla Minecraft</b> and added one thing: <b>an MMO system built from scratch</b>.</p>
       <ul class="feats">
-        <li>Classes &amp; stances</li>
+        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="classes">Classes &amp; stances<span class="chev" aria-hidden="true">▶</span></button></li>
         <li>Group up &amp; raid</li>
         <li>Loot &amp; leveling</li>
         <li>No modpack needed</li>
         <li>Java + Bedrock</li>
         <li>Proximity voice chat</li>
       </ul>
+
+      <div id="classes" hidden>
+        <p class="stance-note">Seven classes, each with a role in the group. You carry <b>one emblem</b> on your hotbar: use it to swap into <b>stance</b>, where your abilities live, then swap back to build and mine. New abilities slot in as you level.</p>
+        <div class="picker" role="tablist" aria-label="Classes"></div>
+        <div class="cls" role="tabpanel" aria-live="polite"></div>
+      </div>
     </div>
   </section>
 
@@ -173,6 +223,103 @@
   const DISCORD_INVITE = "https://discord.gg/XgcZg9ujkb";
   if (DISCORD_INVITE) { const d = document.getElementById("discord"); d.href = DISCORD_INVITE; d.hidden = false; }
   document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // Classes: mirrors classes.yml / abilities.yml in the server plugin.
+  // Bars are relative: hp_mult, melee_mult, best mana multiplier, crit_chance_mult.
+  const CLASSES = [
+    { id: "warrior", name: "Warrior", ico: "🛡️", c: "#c9a46b", role: "Tank", title: "Knight",
+      desc: "Takes the hits so the group doesn't. Most HP, no mana.",
+      abilities: [["Taunt", "make a mob attack you instead of your group"], ["Kick", "a quick strike"]],
+      perks: [["Miner's Grit", "mines 25% faster and finds double ore more often"]],
+      bars: { hp: 1.3, melee: 1.1, mana: 0, crit: 1.0 } },
+    { id: "cleric", name: "Cleric", ico: "✨", c: "#e8d27a", role: "Healer", title: "Grand Cleric",
+      desc: "Keeps the group alive. Plate-wearing and powered by Wisdom.",
+      abilities: [["Minor Healing", "heals whoever in your group is hurt most"], ["Gate", "lvl 5 · return to your bind point"], ["Resurrection", "lvl 12 · call a fallen player back to their corpse"]],
+      perks: [["Green Thumb", "crops near you grow faster; animals you raise give double drops and twins"]],
+      bars: { hp: 1.0, melee: 0.9, mana: 1.0, crit: 0.6 } },
+    { id: "wizard", name: "Wizard", ico: "🔥", c: "#e0703c", role: "Nuker", title: "Channeler",
+      desc: "Huge burst damage from range. Fragile.",
+      abilities: [["Fireball", "a ball of fire at the mob you're looking at"], ["Gate", "lvl 5 · return to your bind point"], ["Combine Port", "lvl 10 · open a portal to any active beacon, group included"]],
+      perks: [["Alchemy", "brewing stands you use sometimes give an extra potion"]],
+      bars: { hp: 0.7, melee: 0.7, mana: 1.2, crit: 0.6 } },
+    { id: "rogue", name: "Rogue", ico: "🗡️", c: "#8fbf6a", role: "Melee DPS", title: "Assassin",
+      desc: "Backstabs and big crits. Lives on agility and dexterity.",
+      abilities: [["Backstab", "strike from behind; sneak up for an Ambush"], ["Evade", "vanish and make mobs lose interest"]],
+      perks: [["Safe Fall", "takes much less fall damage"], ["Shadow Step", "faster while sneaking, and mobs must be much closer to notice you"]],
+      bars: { hp: 1.0, melee: 1.15, mana: 0, crit: 1.6 } },
+    { id: "necromancer", name: "Necromancer", ico: "💀", c: "#9f8fd6", role: "Solo", title: "Hexed One",
+      desc: "The extreme soloer. Pets, lifetaps and dark magic.",
+      abilities: [["Cavorting Bones", "raise a skeleton from a bone to fight beside you"], ["Lifetap", "drain life from a mob into yourself"], ["Gate", "lvl 5 · return to your bind point"], ["Soulbind", "lvl 8 · bind a player's soul to where they stand"]],
+      perks: [["Grave Robber", "undead you kill can drop double loot"]],
+      bars: { hp: 0.75, melee: 0.7, mana: 1.1, crit: 0.6 } },
+    { id: "beastlord", name: "Beastlord", ico: "🐺", c: "#c07a52", role: "Pet melee", title: "Feral Lord",
+      desc: "Tames a wild animal as a lasting companion that levels up beside you. A strong soloer from level 1.",
+      abilities: [["Tame Beast", "win over almost any animal as your pet"], ["Feral Swipe", "rake with your claws, best bare-handed"], ["Mend Companion", "lvl 3 · heal your pet wherever it is"], ["Salve", "lvl 6 · heal yourself or your group"]],
+      perks: [["Feral Bond", "your tamed pet has more health and a harder bite"], ["Beast Kin", "wolves, bears, bees and other neutral animals never turn on you"]],
+      bars: { hp: 0.9, melee: 0.9, mana: 0.6, crit: 1.0 } },
+    { id: "bard", name: "Bard", ico: "🎵", c: "#6fb7c9", role: "Group support", title: "Minstrel",
+      desc: "The extreme group player. Songs that buff everyone nearby.",
+      abilities: [["Hymn of Mending", "heals your whole group while it plays, even on the move"], ["Song of Homecoming", "lvl 15 · sing yourself home to your bind point"]],
+      perks: [["Traveler's Tune", "moves faster outside of combat"]],
+      bars: { hp: 1.0, melee: 1.0, mana: 0.8, crit: 1.0 } },
+  ];
+  const MAX = { hp: 1.3, melee: 1.15, mana: 1.2, crit: 1.6 };
+  const BAR_LABELS = [["hp", "Health"], ["melee", "Melee"], ["mana", "Mana"], ["crit", "Crits"]];
+  const esc = s => s.replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+
+  const panel = document.getElementById("classes");
+  const picker = panel.querySelector(".picker");
+  const card = panel.querySelector(".cls");
+  const toggle = document.querySelector("button.feat-btn");
+
+  CLASSES.forEach((k, i) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.setAttribute("role", "tab"); b.id = "tab-" + k.id;
+    b.style.setProperty("--c", k.c);
+    b.setAttribute("aria-selected", "false");
+    b.innerHTML = `<span class="ico" aria-hidden="true">${k.ico}</span><span class="nm">${esc(k.name)}</span>`;
+    b.addEventListener("click", () => show(i));
+    picker.appendChild(b);
+  });
+  picker.addEventListener("keydown", e => {
+    const tabs = [...picker.children], cur = tabs.indexOf(document.activeElement);
+    if (cur < 0) return;
+    const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+    if (!step) return;
+    e.preventDefault();
+    const n = (cur + step + tabs.length) % tabs.length;
+    show(n); tabs[n].focus();
+  });
+
+  function show(i) {
+    const k = CLASSES[i];
+    [...picker.children].forEach((b, j) => { b.setAttribute("aria-selected", String(j === i)); b.tabIndex = j === i ? 0 : -1; });
+    card.style.setProperty("--c", k.c);
+    card.setAttribute("aria-labelledby", "tab-" + k.id);
+    const list = rows => rows.map(([n, d]) => `<li><b>${esc(n)}</b> <i>${esc(d)}</i></li>`).join("");
+    const bars = BAR_LABELS.map(([key, label]) =>
+      `<span>${label}</span><div class="bar"><span style="width:${Math.round(k.bars[key] / MAX[key] * 100)}%"></span></div>`).join("");
+    card.innerHTML = `
+      <div class="cls-head"><h3>${k.ico} ${esc(k.name)}</h3><span class="role">${esc(k.role.toUpperCase())}</span><span class="title50">Level 50 title: ${esc(k.title)}</span></div>
+      <p class="desc">${esc(k.desc)}</p>
+      <div class="cls-cols">
+        <div><h4>STANCE ABILITIES</h4><ul>${list(k.abilities)}</ul></div>
+        <div><h4>CLASS PERKS</h4><ul>${list(k.perks)}</ul></div>
+      </div>
+      <div class="stats">${bars}</div>`;
+  }
+
+  function setOpen(open) {
+    toggle.setAttribute("aria-expanded", String(open));
+    panel.hidden = !open;
+  }
+  toggle.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") !== "true";
+    setOpen(open);
+    if (open) panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+  show(0);
+  if (location.hash === "#classes") setOpen(true);
   document.querySelectorAll("button.copy").forEach(b => b.addEventListener("click", async () => {
     const t = document.getElementById(b.dataset.copy).textContent;
     try { await navigator.clipboard.writeText(t); b.textContent = "COPIED"; }
