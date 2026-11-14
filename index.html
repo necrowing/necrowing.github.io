@@ -205,7 +205,7 @@
         <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="titles">Titles &amp; achievements<span class="chev" aria-hidden="true">▶</span></button></li>
         <li>No modpack needed</li>
         <li>Java + Bedrock</li>
-        <li>Proximity voice chat</li>
+        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="voice">Proximity voice chat<span class="chev" aria-hidden="true">▶</span></button></li>
       </ul>
 
       <div class="panel" id="classes" hidden>
@@ -237,6 +237,16 @@
         </ul>
         <h3 class="ph">GROUPS OF 6</h3>
         <p><code>/invite</code> a friend. Group members near a kill share its XP and named credit, can't hurt each other, and show on your sidebar with their health. Classic roles apply: the tank holds hate, the healer keeps them up, and everyone else assists.</p>
+      </div>
+
+      <div class="panel" id="voice" hidden>
+        <p><b>Optional.</b> You can play fine without it. With it, you hear players close to you and their voices fade with distance. Callouts in a dungeon hit different.</p>
+        <ol class="steps">
+          <li><b>Install the mod.</b> Get <a href="https://modrinth.com/mod/simple-voice-chat" rel="noopener" style="color:var(--violet-hi)">Simple Voice Chat</a> from Modrinth for Fabric, NeoForge or Forge, matching the server's Minecraft version. The Modrinth App or Prism can install it for you.</li>
+          <li><b>Join as usual.</b> Connect to <code>play.necrowing.dev</code>. The server side is already set up.</li>
+          <li><b>Press V.</b> This opens the voice menu. Pick your mic, test it, then choose push-to-talk or voice activation.</li>
+        </ol>
+        <p>Java only for now. Bedrock players can still play normally, they just can't use voice. The mod's group chat lets you talk to friends from anywhere, and you can rebind any key in Controls.</p>
       </div>
 
       <div class="panel" id="loot" hidden>
@@ -337,7 +347,7 @@
         <div class="port">Port: <span>58764</span></div>
       </div>
     </div>
-    <p class="note">Pre-alpha playtest: the server is in active development, so expect bugs, changes and progress wipes. Report what you find in the Discord. Optional: install the Simple Voice Chat mod for proximity voice.</p>
+    <p class="note">Pre-alpha playtest: the server is in active development, so expect bugs, changes and progress wipes. Report what you find in the Discord. Want voice? See <a href="#voice" style="color:var(--violet-hi)">proximity voice chat</a> (optional).</p>
   </section>
 
   <section aria-labelledby="follow">
@@ -466,6 +476,10 @@
   show(0);
   const fromHash = location.hash.slice(1);
   if (toggles.some(t => t.getAttribute("aria-controls") === fromHash)) openPanel(fromHash, true);
+  window.addEventListener("hashchange", () => {
+    const id = location.hash.slice(1);
+    if (toggles.some(t => t.getAttribute("aria-controls") === id)) openPanel(id, true);
+  });
   document.querySelectorAll("button.copy").forEach(b => b.addEventListener("click", async () => {
     const t = document.getElementById(b.dataset.copy).textContent;
     try { await navigator.clipboard.writeText(t); b.textContent = "COPIED"; }
