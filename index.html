@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#0b0a0e">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0b0a0e;
@@ -36,7 +36,7 @@
     background: var(--bg);
     color: var(--text);
     font-family: "VT323", ui-monospace, monospace;
-    font-size: 22px;
+    font-size: 15.8px;
     line-height: 1.35;
     min-height: 100vh;
     background-image:
@@ -66,17 +66,17 @@
   }
   .cta-discord:hover { background: var(--violet-hi); }
   .cta-discord:active { transform: translate(2px,2px); box-shadow: none; }
-  .cta-sub { color: var(--muted); font-size: 19px; text-decoration: none; }
+  .cta-sub { color: var(--muted); font-size: 13.7px; text-decoration: none; }
   .cta-sub:hover { color: var(--stone); }
   @media (max-width: 640px) { main { padding-top: 32px; } .logo { width: 84px; height: 84px; margin-bottom: 12px; } }
   section { margin-top: 56px; }
-  h2 { font-family: "Silkscreen", monospace; font-size: 22px; color: var(--violet-hi); margin: 0 0 14px; letter-spacing: 1px; }
+  h2 { font-family: "Silkscreen", monospace; font-size: 15.8px; color: var(--violet-hi); margin: 0 0 14px; letter-spacing: 1px; }
 
   .card {
     background: var(--panel); border: 2px solid var(--line);
     box-shadow: 4px 4px 0 #000; padding: 22px 24px;
   }
-  .pitch { font-size: 26px; margin: 0 0 10px; }
+  .pitch { font-size: 18.7px; margin: 0 0 10px; }
   .pitch b { color: var(--stone); font-weight: normal; }
   ul.feats { list-style: none; padding: 0; margin: 14px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
   ul.feats li { border: 2px solid var(--line); padding: 10px 12px; color: var(--stone); }
@@ -97,7 +97,7 @@
 
   .panel { margin-top: 18px; border-top: 2px dashed var(--line); padding-top: 18px; }
   .panel[hidden] { display: none; }
-  .panel h3.ph { font-family: "Silkscreen", monospace; font-size: 18px; color: var(--violet-hi); margin: 18px 0 8px; letter-spacing: 1px; }
+  .panel h3.ph { font-family: "Silkscreen", monospace; font-size: 13px; color: var(--violet-hi); margin: 18px 0 8px; letter-spacing: 1px; }
   .panel h3.ph:first-child { margin-top: 0; }
   .panel p { margin: 0 0 10px; color: var(--stone); }
   .panel p b, .panel td b { color: var(--text); font-weight: normal; }
@@ -106,50 +106,50 @@
   @media (max-width: 640px) { .tiers { grid-template-columns: 1fr 1fr; } }
   .tier { background: #0e0d13; border: 2px solid var(--t); padding: 10px 12px; }
   .tier .tn { font-family: "Silkscreen", monospace; font-size: 14px; color: var(--t); letter-spacing: 1px; }
-  .tier .td { font-size: 18px; color: var(--stone-dim); margin-top: 4px; }
+  .tier .td { font-size: 13px; color: var(--stone-dim); margin-top: 4px; }
   .tier.unique { box-shadow: 0 0 12px rgba(232,180,60,.45), 4px 4px 0 #000; }
   ul.dots { list-style: none; margin: 0 0 10px; padding: 0; }
   ul.dots li { padding: 3px 0 3px 18px; position: relative; color: var(--stone); }
   ul.dots li::before { content: "▪"; position: absolute; left: 0; color: var(--violet-hi); }
   ol.steps { list-style: none; counter-reset: s; margin: 0 0 10px; padding: 0; display: grid; gap: 8px; }
   ol.steps li { counter-increment: s; background: #0e0d13; border: 2px solid var(--line); padding: 10px 12px 10px 52px; position: relative; color: var(--stone); }
-  ol.steps li::before { content: counter(s); position: absolute; left: 12px; top: 8px; font-family: "Silkscreen", monospace; font-size: 20px; color: var(--violet-hi); }
-  table.tt { width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 20px; }
+  ol.steps li::before { content: counter(s); position: absolute; left: 12px; top: 8px; font-family: "Silkscreen", monospace; font-size: 14.4px; color: var(--violet-hi); }
+  table.tt { width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 14.4px; }
   table.tt th { font-family: "Silkscreen", monospace; font-size: 11px; color: var(--muted); text-align: left; letter-spacing: 1px; padding: 0 8px 6px 0; font-weight: normal; }
   table.tt td { border-top: 2px solid var(--line); padding: 7px 8px 7px 0; vertical-align: top; color: var(--stone-dim); }
   table.tt td:first-child { color: var(--text); white-space: nowrap; }
   @media (max-width: 640px) { table.tt, table.tt tbody, table.tt tr, table.tt td { display: block; } table.tt thead { display: none; } table.tt td { border: 0; padding: 0 0 2px; white-space: normal !important; } table.tt tr { border-top: 2px solid var(--line); padding: 8px 0; } }
   .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
-  .chips span { background: #0e0d13; border: 2px solid var(--line); padding: 3px 9px; font-size: 19px; color: var(--stone); }
-  .chips span em { font-style: normal; color: var(--muted); font-size: 16px; }
+  .chips span { background: #0e0d13; border: 2px solid var(--line); padding: 3px 9px; font-size: 13.7px; color: var(--stone); }
+  .chips span em { font-style: normal; color: var(--muted); font-size: 11.5px; }
   .panel code { font-family: inherit; color: var(--violet-hi); }
   .boards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 10px; }
   @media (max-width: 640px) { .boards { grid-template-columns: 1fr 1fr; } }
   .board { background: #0e0d13; border: 2px solid var(--line); padding: 8px 10px; }
   .board .bn { font-family: "Silkscreen", monospace; font-size: 10px; color: var(--muted); letter-spacing: 1px; }
-  .board .b1 { color: #ffaa00; font-size: 20px; margin-top: 2px; }
-  .board .b1 span { color: var(--stone-dim); font-size: 17px; }
+  .board .b1 { color: #ffaa00; font-size: 14.4px; margin-top: 2px; }
+  .board .b1 span { color: var(--stone-dim); font-size: 12.2px; }
   .first-banner { border: 2px solid #ffaa00; background: linear-gradient(135deg, rgba(255,170,0,.12), rgba(85,255,85,.06)); padding: 12px 16px; box-shadow: 0 0 14px rgba(255,170,0,.25), 4px 4px 0 #000; margin-bottom: 6px; }
   .first-banner p { margin: 6px 0 0; }
   .fb-tag { font-family: "Silkscreen", monospace; font-size: 13px; color: #ffaa00; letter-spacing: 2px; }
   .mp, .grad { background: linear-gradient(90deg, #ffaa00, #55ff55); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .preview { background: #0e0d13 linear-gradient(#26324a, #0e0d13 70%); border: 2px solid var(--line); padding: 18px 14px 12px; margin-bottom: 12px; text-align: center; }
   .pv-world { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 14px; }
-  .pv-tag { background: rgba(0,0,0,.45); padding: 2px 8px; font-size: 22px; max-width: 100%; text-shadow: 2px 2px 0 rgba(0,0,0,.6); }
+  .pv-tag { background: rgba(0,0,0,.45); padding: 2px 8px; font-size: 15.8px; max-width: 100%; text-shadow: 2px 2px 0 rgba(0,0,0,.6); }
   .pv-head { width: 44px; height: 44px; image-rendering: pixelated; box-shadow: 4px 4px 0 #000;
     background: linear-gradient(#3b2a20 0 30%, transparent 30%), linear-gradient(90deg, transparent 18%, #fff 18% 32%, transparent 32% 68%, #fff 68% 82%, transparent 82%) 0 45%/100% 14% no-repeat, #c69c7a; }
-  .pv-chat { text-align: left; background: rgba(0,0,0,.5); padding: 6px 10px; font-size: 20px; text-shadow: 2px 2px 0 rgba(0,0,0,.6); overflow-wrap: anywhere; }
-  .pv-meta { text-align: left; color: var(--muted); font-size: 17px; margin-top: 8px; min-height: 22px; }
+  .pv-chat { text-align: left; background: rgba(0,0,0,.5); padding: 6px 10px; font-size: 14.4px; text-shadow: 2px 2px 0 rgba(0,0,0,.6); overflow-wrap: anywhere; }
+  .pv-meta { text-align: left; color: var(--muted); font-size: 12.2px; margin-top: 8px; min-height: 22px; }
   .pv-meta .ann { color: #ffaa00; }
   .tgroup { margin-bottom: 10px; }
   .tgroup h4 { font-family: "Silkscreen", monospace; font-size: 11px; color: var(--muted); letter-spacing: 1px; margin: 0 0 6px; }
   .tchips { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tchips button { font: inherit; font-size: 19px; cursor: pointer; background: #2b2836; border: 2px solid var(--line); padding: 2px 9px; text-shadow: 1px 1px 0 rgba(0,0,0,.6); }
+  .tchips button { font: inherit; font-size: 13.7px; cursor: pointer; background: #2b2836; border: 2px solid var(--line); padding: 2px 9px; text-shadow: 1px 1px 0 rgba(0,0,0,.6); }
   .tchips button:hover { border-color: var(--web); }
   .tchips button[aria-pressed="true"] { border-color: var(--violet-hi); background: #3a3450; }
   .tchips button.first { border-color: #ffaa00; }
-  .nametag { display: inline-block; background: rgba(0,0,0,.55); padding: 4px 10px; font-size: 22px; margin: 2px 0 10px; }
-  .stance-note { color: var(--stone-dim); font-size: 20px; margin: 0 0 14px; }
+  .nametag { display: inline-block; background: rgba(0,0,0,.55); padding: 4px 10px; font-size: 15.8px; margin: 2px 0 10px; }
+  .stance-note { color: var(--stone-dim); font-size: 14.4px; margin: 0 0 14px; }
   .stance-note b { color: var(--text); font-weight: normal; }
   .picker { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
   @media (max-width: 640px) { .picker { grid-template-columns: repeat(4, 1fr); } }
@@ -157,24 +157,24 @@
     font: inherit; cursor: pointer; background: #0e0d13; color: var(--stone-dim);
     border: 2px solid var(--line); padding: 8px 4px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px;
   }
-  .picker button .ico { font-size: 26px; line-height: 1; }
+  .picker button .ico { font-size: 18.7px; line-height: 1; }
   .picker button .nm { font-family: "Silkscreen", monospace; font-size: 10px; letter-spacing: .5px; }
   .picker button:hover { border-color: var(--web); color: var(--text); }
   .picker button[aria-selected="true"] { border-color: var(--c, var(--violet-hi)); color: #fff; box-shadow: inset 0 -4px 0 var(--c, var(--violet-hi)); }
   .cls { margin-top: 12px; background: #0e0d13; border: 2px solid var(--c, var(--violet)); padding: 16px 18px; box-shadow: 4px 4px 0 #000; }
   .cls-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
-  .cls-head h3 { font-family: "Silkscreen", monospace; font-size: 22px; margin: 0; color: var(--c, var(--stone)); }
+  .cls-head h3 { font-family: "Silkscreen", monospace; font-size: 15.8px; margin: 0; color: var(--c, var(--stone)); }
   .role { font-family: "Silkscreen", monospace; font-size: 11px; background: var(--c, var(--violet)); color: #0b0a0e; padding: 3px 7px; letter-spacing: 1px; }
-  .title50 { color: var(--muted); font-size: 18px; margin-left: auto; }
-  .cls p.desc { margin: 8px 0 12px; font-size: 22px; }
+  .title50 { color: var(--muted); font-size: 13px; margin-left: auto; }
+  .cls p.desc { margin: 8px 0 12px; font-size: 15.8px; }
   .cls-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   @media (max-width: 640px) { .cls-cols { grid-template-columns: 1fr; } }
   .cls h4 { font-family: "Silkscreen", monospace; font-size: 12px; color: var(--muted); letter-spacing: 1px; margin: 0 0 6px; }
   .cls ul { list-style: none; margin: 0; padding: 0; }
-  .cls li { padding: 3px 0; color: var(--stone); font-size: 20px; }
+  .cls li { padding: 3px 0; color: var(--stone); font-size: 14.4px; }
   .cls li b { color: var(--text); font-weight: normal; }
-  .cls li i { color: var(--muted); font-style: normal; font-size: 17px; }
-  .stats { display: grid; grid-template-columns: auto 1fr; gap: 3px 8px; align-items: center; margin-top: 12px; font-size: 18px; color: var(--muted); }
+  .cls li i { color: var(--muted); font-style: normal; font-size: 12.2px; }
+  .stats { display: grid; grid-template-columns: auto 1fr; gap: 3px 8px; align-items: center; margin-top: 12px; font-size: 13px; color: var(--muted); }
   .bar { height: 8px; background: #1d1a26; }
   .bar span { display: block; height: 100%; background: var(--c, var(--violet-hi)); }
 
@@ -195,7 +195,7 @@
   }
   button.copy:hover { background: var(--violet-hi); }
   button.copy:active { transform: translate(2px,2px); box-shadow: none; }
-  .note { color: var(--muted); font-size: 19px; margin-top: 14px; }
+  .note { color: var(--muted); font-size: 13.7px; margin-top: 14px; }
 
   .links { display: flex; flex-wrap: wrap; gap: 12px; }
   .links a {
@@ -207,9 +207,140 @@
   .links a.primary { background: var(--violet); border-color: var(--violet-hi); }
 
   .badge { font-size: 12px; vertical-align: middle; margin-left: 8px; padding: 3px 7px; background: var(--violet); color: #fff; box-shadow: 2px 2px 0 #000; letter-spacing: 1px; }
-  footer { margin-top: 64px; text-align: center; color: var(--muted); font-size: 18px; }
+  footer { margin-top: 64px; text-align: center; color: var(--muted); font-size: 13px; }
   footer a { color: var(--stone-dim); }
   :focus-visible { outline: 2px solid var(--violet-hi); outline-offset: 2px; }
+
+  /* ===== Modern layout (v2) ===== */
+  :root {
+    --bg: #09090b; --panel: #121117; --line: rgba(255,255,255,.09); --web: #3a3548;
+    --stone: #d6d1e6; --stone-dim: #a39dba; --violet: #7c6bb5; --violet-hi: #a593e6;
+    --text: #f1eef8; --muted: #8d879f; --accent: #a78bfa; --accent-2: #8b5cf6; --dc: #5865f2; --ok: #4ade80;
+    --r: 14px;
+  }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 16px; line-height: 1.55;
+    background: radial-gradient(ellipse 80% 50% at 50% -5%, rgba(139,92,246,.22), transparent 60%), var(--bg); }
+  .webs { opacity: .28; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 22px; }
+  main { max-width: none; padding: 0; }
+  a { color: var(--accent); }
+  b { font-weight: 600; color: var(--text); }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--muted); margin-right: 7px; vertical-align: middle; }
+  .dot.on { background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+  .dot.off { background: #f87171; }
+  .dot.dc { background: var(--dc); }
+  .announce { position: relative; z-index: 3; text-align: center; font-size: 13.5px; color: var(--stone); padding: 8px 14px; background: linear-gradient(90deg, rgba(139,92,246,.18), rgba(88,101,242,.14)); border-bottom: 1px solid var(--line); }
+  .announce a { color: #fff; font-weight: 600; text-decoration: none; margin-left: 6px; }
+  .pill-tag { font-family: "Silkscreen", monospace; font-size: 10px; background: var(--accent-2); color: #fff; padding: 2px 7px; border-radius: 99px; margin-right: 6px; letter-spacing: 1px; }
+  .topnav { position: sticky; top: 0; z-index: 5; background: rgba(9,9,11,.78); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .navin { display: flex; align-items: center; gap: 22px; height: 62px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-family: "Silkscreen", monospace; font-size: 16px; letter-spacing: 1px; }
+  .brand img { image-rendering: pixelated; }
+  .navlinks { display: flex; gap: 22px; margin-left: auto; }
+  .navlinks a { color: var(--stone-dim); text-decoration: none; font-size: 14.5px; font-weight: 500; }
+  .navlinks a:hover { color: #fff; }
+  @media (max-width: 720px) { .navlinks { display: none; } .navin .btn { margin-left: auto; } }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 600 15px "Space Grotesk", sans-serif; padding: 12px 20px; border-radius: 10px; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: transform .1s, filter .15s, background .15s; }
+  .btn:hover { filter: brightness(1.12); transform: translateY(-1px); }
+  .btn.sm { padding: 8px 14px; font-size: 14px; }
+  .btn-accent { background: linear-gradient(180deg, var(--accent), var(--accent-2)); color: #0b0716; box-shadow: 0 6px 24px rgba(139,92,246,.35); }
+  .btn-dc { background: var(--dc); color: #fff; }
+  .btn-ghost { background: rgba(255,255,255,.04); color: var(--text); border-color: var(--line); }
+  header.hero { text-align: center; padding-top: 60px; }
+  .logo { width: 128px; height: 128px; filter: drop-shadow(0 10px 30px rgba(139,92,246,.45)); animation: bob 4s ease-in-out infinite; }
+  @keyframes bob { 50% { transform: translateY(-8px); } }
+  @media (prefers-reduced-motion: reduce) { .logo { animation: none; } html { scroll-behavior: auto; } }
+  h1 { font-size: clamp(46px, 9vw, 92px); }
+  .live { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 12px; margin: 22px 0 6px; font-size: 14px; color: var(--stone-dim); }
+  .live .sep { color: var(--web); }
+  .live .accent { color: var(--accent); }
+  .pitch { font-size: clamp(18px, 2.4vw, 22px); max-width: 720px; margin: 18px auto 26px; color: var(--stone); line-height: 1.5; }
+  .pitch b { font-weight: 600; color: #fff; }
+  .hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .chips-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 18px; }
+  .chip { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,255,255,.035); border: 1px solid var(--line); border-radius: 99px; padding: 6px 13px; font-size: 13px; color: var(--stone-dim); }
+  .chip b { color: var(--text); font-weight: 600; }
+  button.linkish { all: unset; cursor: pointer; color: var(--ok); font-weight: 600; margin-left: 4px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 56px; }
+  @media (max-width: 720px) { .stats { grid-template-columns: 1fr 1fr; } }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; text-align: center; }
+  .sv { font-size: 32px; font-weight: 700; color: #fff; line-height: 1.1; }
+  .sl { font-size: 11px; letter-spacing: 1.5px; color: var(--muted); margin-top: 6px; font-weight: 600; }
+  section { margin-top: 96px; }
+  .eyebrow { font-family: "Silkscreen", monospace; font-size: 12px; letter-spacing: 2px; color: var(--accent); text-align: center; }
+  h2 { font: 700 clamp(28px, 4.2vw, 40px)/1.15 "Space Grotesk", sans-serif; color: #fff; text-align: center; margin: 8px 0 10px; letter-spacing: -.5px; }
+  .lede { text-align: center; color: var(--stone-dim); max-width: 620px; margin: 0 auto 28px; }
+  .jtabs { display: flex; justify-content: center; gap: 6px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 5px; width: fit-content; margin: 0 auto 18px; max-width: 100%; }
+  .jtabs button { font: 600 14px "Space Grotesk", sans-serif; background: none; border: 0; color: var(--stone-dim); padding: 9px 16px; border-radius: 8px; cursor: pointer; }
+  .jtabs button[aria-selected="true"] { background: var(--accent-2); color: #fff; }
+  .jsteps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 760px) { .jsteps { grid-template-columns: 1fr; } }
+  .jstep { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; }
+  .jn { font-family: "Silkscreen", monospace; font-size: 26px; color: var(--accent); opacity: .85; }
+  .jstep h3 { margin: 8px 0 6px; font-size: 18px; color: #fff; }
+  .jstep p { margin: 0; color: var(--stone-dim); font-size: 15px; }
+  .ipbox { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 14px; background: linear-gradient(135deg, rgba(139,92,246,.16), rgba(255,255,255,.02)); border: 1px solid rgba(167,139,250,.35); border-radius: var(--r); padding: 18px 22px; }
+  .ipv { font: 600 22px ui-monospace, monospace; color: #fff; margin-top: 2px; }
+  .note { color: var(--muted); font-size: 14px; text-align: center; margin-top: 14px; }
+  .fgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 900px) { .fgrid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .fgrid { grid-template-columns: 1fr; } }
+  button.feat-btn.fcard, .fcard { all: unset; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; cursor: pointer; transition: border-color .15s, transform .15s, background .15s; text-align: left; }
+  .fcard.static { cursor: default; }
+  button.feat-btn.fcard::before { content: none; }
+  button.feat-btn.fcard:hover { border-color: rgba(167,139,250,.5); transform: translateY(-2px); background: #16141d; }
+  button.feat-btn.fcard[aria-expanded="true"] { border-color: var(--accent); background: linear-gradient(160deg, rgba(139,92,246,.2), var(--panel)); }
+  button.feat-btn.fcard:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .fi { font-size: 26px; width: 48px; height: 48px; display: grid; place-items: center; background: rgba(167,139,250,.12); border-radius: 12px; margin-bottom: 8px; }
+  .fk { font-size: 11px; letter-spacing: 1.5px; color: var(--accent); font-weight: 700; }
+  .ft { font-size: 19px; font-weight: 700; color: #fff; }
+  .fd { color: var(--stone-dim); font-size: 14.5px; }
+  .fm { margin-top: 8px; color: var(--accent); font-weight: 600; font-size: 14px; }
+  button.feat-btn.fcard[aria-expanded="true"] .fm { color: #fff; }
+  .pwrap .panel { margin-top: 14px; border: 1px solid rgba(167,139,250,.35); border-radius: var(--r); padding: 26px; background: var(--panel); }
+  .panel p, .panel li, .panel td { line-height: 1.5; }
+  .panel b { font-weight: 600; }
+  .tier, .cls, ol.steps li, .board, .preview, .first-banner, .picker button, .tchips button, .chips span, .nametag, .pv-chat, .pv-tag { border-radius: 10px; }
+  .tier, .cls, ol.steps li, .board, .picker button, .tchips button { border-width: 1px; }
+  .cls, .tier.unique, .first-banner { box-shadow: none; }
+  .tier.unique { box-shadow: 0 0 16px rgba(232,180,60,.35); }
+  .panel code { font-family: ui-monospace, monospace; font-size: .92em; background: rgba(167,139,250,.12); padding: 1px 5px; border-radius: 5px; color: var(--accent); }
+  .timeline { list-style: none; margin: 0 auto; padding: 0; max-width: 760px; position: relative; }
+  .timeline::before { content: ""; position: absolute; left: 11px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--accent), rgba(167,139,250,.1)); }
+  .timeline li { position: relative; padding: 0 0 26px 44px; }
+  .timeline li::before { content: ""; position: absolute; left: 4px; top: 5px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+  .timeline li.now::before { background: var(--accent); box-shadow: 0 0 14px var(--accent); }
+  .timeline .td { font-size: 12px; letter-spacing: 1.5px; color: var(--accent); font-weight: 700; }
+  .timeline h3 { margin: 2px 0 4px; color: #fff; font-size: 19px; }
+  .timeline p { margin: 0; color: var(--stone-dim); }
+  .faq { max-width: 760px; margin: 0 auto; display: grid; gap: 10px; }
+  .faq details { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 0 20px; }
+  .faq details[open] { border-color: rgba(167,139,250,.4); }
+  .faq summary { cursor: pointer; list-style: none; padding: 16px 0; font-weight: 600; color: #fff; display: flex; justify-content: space-between; gap: 12px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--accent); font-size: 20px; line-height: 1; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq details p { margin: 0 0 16px; color: var(--stone-dim); }
+  .cta-band { text-align: center; background: linear-gradient(135deg, rgba(139,92,246,.18), rgba(88,101,242,.1)); border: 1px solid rgba(167,139,250,.3); border-radius: 20px; padding: 44px 22px; max-width: 1076px; }
+  .cta-band h2 { margin-top: 0; }
+  .foot { position: relative; z-index: 1; margin-top: 96px; border-top: 1px solid var(--line); background: rgba(0,0,0,.35); padding: 44px 0 26px; font-size: 14.5px; color: var(--stone-dim); }
+  .fgrid2 { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 28px; }
+  @media (max-width: 720px) { .fgrid2 { grid-template-columns: 1fr 1fr; } .fgrid2 > div:first-child { grid-column: 1 / -1; } }
+  .foot .fh { font-size: 11px; letter-spacing: 1.5px; color: var(--muted); font-weight: 700; margin-bottom: 10px; }
+  .foot a:not(.brand) { display: block; color: var(--stone-dim); text-decoration: none; padding: 3px 0; }
+  .foot a:hover { color: #fff; }
+  .foot .mono { font-family: ui-monospace, monospace; color: var(--accent); }
+  button.btn.copy { font: 600 15px "Space Grotesk", sans-serif; letter-spacing: 0; padding: 12px 20px; border-radius: 10px; border: 1px solid transparent; box-shadow: 0 6px 24px rgba(139,92,246,.35); color: #0b0716; background: linear-gradient(180deg, var(--accent), var(--accent-2)); }
+  button.btn.copy:active { transform: none; }
+  button.copy.linkish { all: unset; cursor: pointer; color: var(--ok); font-weight: 600; margin-left: 4px; font-size: 13px; }
+  section.wrap { margin: 104px auto 0; }
+  .stats.wrap { margin: 56px auto 0; }
+  .cta-band.wrap { margin: 104px auto 0; padding: 44px 22px; }
+  footer.foot { text-align: left; }
+  .chip { flex-wrap: wrap; justify-content: center; max-width: 100%; }
+  @media (max-width: 640px) { .logo { width: 96px; height: 96px; } header.hero { padding-top: 36px; } section.wrap, .cta-band.wrap { margin-top: 80px; } }
+  .legal { margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -221,34 +352,98 @@
     <path d="M1000 600 L830 470 M1000 600 L940 400 M970 580 L930 520 L980 500 M910 550 L870 470 L960 450"/>
   </g>
 </svg>
-<main>
-  <header class="hero">
-    <img class="logo" src="/assets/logo.png" alt="Necrowing cobweb block logo" width="112" height="112">
+
+<div class="announce"><span class="pill-tag">PRE-ALPHA</span> Playtests are open and founding members are wanted. <a data-discord href="#" rel="noopener">Join the Discord →</a></div>
+
+<nav class="topnav">
+  <div class="wrap navin">
+    <a class="brand" href="#top"><img src="/assets/logo.png" alt="" width="34" height="34"><span>NECROWING</span></a>
+    <div class="navlinks">
+      <a href="#features">Features</a>
+      <a href="#join">How to Join</a>
+      <a href="#story">Story</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="btn btn-dc sm" data-discord href="#" rel="noopener">Discord</a>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero wrap">
+    <img class="logo" src="/assets/logo.png" alt="Necrowing cobweb block logo" width="128" height="128">
     <h1>NECROWING</h1>
-    <div class="tag">INDIE DEV · BLOCKY WORLDS</div>
-    <div class="cta">
-      <div class="addr"><span id="hero-addr">play.necrowing.dev</span><button class="copy" data-copy="hero-addr">COPY</button></div>
-      <a class="cta-discord" href="https://discord.gg/XgcZg9ujkb" rel="noopener">JOIN THE DISCORD</a>
-      <a class="cta-sub" href="#join">Java + Bedrock · free · how to join ↓</a>
+    <div class="live">
+      <span id="st-server"><i class="dot"></i>Checking server…</span>
+      <span class="sep">•</span>
+      <span id="st-discord"><i class="dot dc"></i>Discord</span>
+      <span class="sep">•</span>
+      <span class="accent">Day <span data-day>1</span> of development</span>
+    </div>
+    <p class="pitch">Tired of copy &amp; paste SMPs? So were we. We went back to <b>vanilla Minecraft</b> and added one thing: <b>an MMO system built from scratch</b>.</p>
+    <div class="hero-btns">
+      <button class="btn btn-accent copy" data-copy="hero-addr">Copy Server IP</button>
+      <a class="btn btn-dc" data-discord href="#" rel="noopener">Discord</a>
+      <a class="btn btn-ghost" href="#features">See features</a>
+    </div>
+    <div class="chips-row">
+      <span class="chip"><i class="dot on"></i>Java: <b id="hero-addr">play.necrowing.dev</b></span>
+      <span class="chip"><i class="dot on"></i>Bedrock: <b id="hero-be">bedrock.necrowing.dev</b> Port: <b>58764</b> <button class="copy linkish" data-copy="hero-be">Copy</button></span>
+      <span class="chip">Free · No modpack</span>
     </div>
   </header>
 
-  <section aria-labelledby="eq">
-    <h2 id="eq">&gt; PLAY.NECROWING.DEV <span class="badge">PRE-ALPHA</span></h2>
-    <div class="card">
-      <p class="pitch">Tired of copy &amp; paste SMPs? So were we. We went back to <b>vanilla Minecraft</b> and added one thing: <b>an MMO system built from scratch</b>.</p>
-      <ul class="feats">
-        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="classes">Classes &amp; stances<span class="chev" aria-hidden="true">▶</span></button></li>
-        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="targeting">Targeting &amp; groups<span class="chev" aria-hidden="true">▶</span></button></li>
-        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="loot">Loot &amp; items<span class="chev" aria-hidden="true">▶</span></button></li>
-        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="death">Death &amp; corpse runs<span class="chev" aria-hidden="true">▶</span></button></li>
-        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="travel">Travel &amp; ports<span class="chev" aria-hidden="true">▶</span></button></li>
-        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="titles">Titles &amp; leaderboards<span class="chev" aria-hidden="true">▶</span></button></li>
-        <li>No modpack needed</li>
-        <li>Java + Bedrock</li>
-        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="voice">Proximity voice chat<span class="chev" aria-hidden="true">▶</span></button></li>
-      </ul>
+  <div class="stats wrap">
+    <div class="stat"><div class="sv">Day <span data-day>1</span></div><div class="sl">SINCE OCT 31, 2026</div></div>
+    <div class="stat"><div class="sv" id="tile-players">–</div><div class="sl" id="tile-players-l">PLAYERS ONLINE</div></div>
+    <div class="stat"><div class="sv" id="tile-discord">–</div><div class="sl">DISCORD MEMBERS</div></div>
+    <div class="stat"><div class="sv">33k+</div><div class="sl">LINES OF CUSTOM CODE</div></div>
+  </div>
 
+  <section id="join" class="wrap">
+    <div class="eyebrow">JAVA &amp; BEDROCK CROSS-PLAY</div>
+    <h2>How to join</h2>
+    <p class="lede">On PC, phone or console, you can be in the world in under a minute.</p>
+    <div class="jtabs" role="tablist">
+      <button role="tab" aria-selected="true" aria-controls="j-java">Java Edition (PC)</button>
+      <button role="tab" aria-selected="false" aria-controls="j-bed">Bedrock (Mobile / Console)</button>
+    </div>
+    <div class="jpane" id="j-java">
+      <div class="jsteps">
+        <div class="jstep"><div class="jn">01</div><h3>Get whitelisted</h3><p>Join the <a data-discord href="#" rel="noopener">Discord</a> and post your in-game name in <b>#whitelist-requests</b>.</p></div>
+        <div class="jstep"><div class="jn">02</div><h3>Add the server</h3><p>Go to Multiplayer → Add Server and paste <b>play.necrowing.dev</b>. No mods and no launcher needed.</p></div>
+        <div class="jstep"><div class="jn">03</div><h3>Pick your class</h3><p>Use the emblem on your hotbar to choose one of seven classes, then head out.</p></div>
+      </div>
+    </div>
+    <div class="jpane" id="j-bed" hidden>
+      <div class="jsteps">
+        <div class="jstep"><div class="jn">01</div><h3>Get whitelisted</h3><p>Join the <a data-discord href="#" rel="noopener">Discord</a> and post your gamertag in <b>#whitelist-requests</b>.</p></div>
+        <div class="jstep"><div class="jn">02</div><h3>Add the server</h3><p>Play → Servers → Add Server. Address <b>bedrock.necrowing.dev</b>, port <b>58764</b>.</p></div>
+        <div class="jstep"><div class="jn">03</div><h3>Pick your class</h3><p>Tap the emblem on your hotbar to choose a class. Same world as Java players.</p></div>
+      </div>
+    </div>
+    <div class="ipbox">
+      <div><div class="sl">SERVER ADDRESS</div><div class="ipv"><span id="java">play.necrowing.dev</span></div></div>
+      <button class="btn btn-accent copy" data-copy="java">Copy IP</button>
+    </div>
+    <p class="note">Pre-alpha: expect bugs, changes and progress wipes. Report what you find in the Discord. Want voice? See <a href="#voice">proximity voice chat</a> (optional).</p>
+  </section>
+
+  <section id="features" class="wrap">
+    <div class="eyebrow">VANILLA BASE · MMO SYSTEMS</div>
+    <h2>Built for real MMO players</h2>
+    <p class="lede">Every system was built from scratch to feel like it could've shipped in vanilla. Click any card to dig in.</p>
+    <div class="fgrid">
+      <button class="feat-btn fcard" type="button" aria-expanded="false" aria-controls="classes"><span class="fi">🛡️</span><span class="fk">7 CLASSES</span><span class="ft">Classes &amp; stances</span><span class="fd">Tank, healer, nuker and more. One emblem swaps you into stance.</span><span class="fm">Explore classes ›</span></button>
+      <button class="feat-btn fcard" type="button" aria-expanded="false" aria-controls="targeting"><span class="fi">🎯</span><span class="fk">RIGHT-CLICK</span><span class="ft">Targeting &amp; groups</span><span class="fd">Click to target from 32 blocks away, then group up in parties of 6.</span><span class="fm">How it works ›</span></button>
+      <button class="feat-btn fcard" type="button" aria-expanded="false" aria-controls="loot"><span class="fi">💎</span><span class="fk">4 TIERS</span><span class="ft">Loot &amp; items</span><span class="fd">Magic, Rare and Unique drops, imbuing, coin and an auction house.</span><span class="fm">See the loot ›</span></button>
+      <button class="feat-btn fcard" type="button" aria-expanded="false" aria-controls="death"><span class="fi">⚰️</span><span class="fk">2H TO RECOVER</span><span class="ft">Death &amp; corpse runs</span><span class="fd">Your gear stays on your corpse. Go get it, or find a Cleric.</span><span class="fm">Fear the run ›</span></button>
+      <button class="feat-btn fcard" type="button" aria-expanded="false" aria-controls="travel"><span class="fi">🌀</span><span class="fk">NO /HOME</span><span class="ft">Travel &amp; ports</span><span class="fd">Bind, Gate, Wizard ports and beacon networks. Travel is earned.</span><span class="fm">Ways home ›</span></button>
+      <button class="feat-btn fcard" type="button" aria-expanded="false" aria-controls="titles"><span class="fi">👑</span><span class="fk">SERVER FIRSTS</span><span class="ft">Titles &amp; leaderboards</span><span class="fd">Colored titles on your nametag, achievements and empty #1 spots.</span><span class="fm">Try on a title ›</span></button>
+      <button class="feat-btn fcard" type="button" aria-expanded="false" aria-controls="voice"><span class="fi">🎙️</span><span class="fk">OPTIONAL</span><span class="ft">Proximity voice chat</span><span class="fd">Hear players near you. Set up in three steps with one mod.</span><span class="fm">Set it up ›</span></button>
+      <div class="fcard static"><span class="fi">📱</span><span class="fk">CROSS-PLAY</span><span class="ft">Java + Bedrock</span><span class="fd">PC, phone and console players share one world.</span></div>
+      <div class="fcard static"><span class="fi">🧱</span><span class="fk">NO MODPACK</span><span class="ft">Just join</span><span class="fd">No launcher and no 300-mod download. Vanilla client, MMO server.</span></div>
+    </div>
+    <div class="pwrap">
       <div class="panel" id="classes" hidden>
         <p class="stance-note">Seven classes, each with a role in the group. You carry <b>one emblem</b> on your hotbar: use it to swap into <b>stance</b>, where your abilities live, then swap back to build and mine. New abilities slot in as you level.</p>
         <div class="picker" role="tablist" aria-label="Classes"></div>
@@ -382,41 +577,69 @@
     </div>
   </section>
 
-  <section aria-labelledby="join">
-    <h2 id="join">&gt; JOIN THE SERVER</h2>
-    <div class="join">
-      <div class="card">
-        <div class="edition">JAVA EDITION</div>
-        <div class="addr"><span id="java">play.necrowing.dev</span><button class="copy" data-copy="java">COPY</button></div>
-        <div class="port">Port: <span>default</span></div>
-      </div>
-      <div class="card">
-        <div class="edition">BEDROCK · PHONE · CONSOLE</div>
-        <div class="addr"><span id="bedrock">bedrock.necrowing.dev</span><button class="copy" data-copy="bedrock">COPY</button></div>
-        <div class="port">Port: <span>58764</span></div>
-      </div>
-    </div>
-    <p class="note">Pre-alpha playtest: the server is in active development, so expect bugs, changes and progress wipes. Report what you find in the Discord. Want voice? See <a href="#voice" style="color:var(--violet-hi)">proximity voice chat</a> (optional).</p>
+  <section id="story" class="wrap">
+    <div class="eyebrow">THE STORY SO FAR</div>
+    <h2>Built in the open</h2>
+    <p class="lede">One dev, one idea: an old-school MMO that lives inside vanilla Minecraft. Here's how it's going.</p>
+    <ol class="timeline">
+      <li><div class="td">OCT 31, 2026</div><h3>First line of code</h3><p>Development starts on Halloween, naturally. The Paper plugin begins with classes, stats and levels.</p></li>
+      <li><div class="td">EARLY NOV 2026</div><h3>The MMO takes shape</h3><p>Stances, targeting, corpse runs, loot tiers, travel, achievements and titles all land, and AI bot swarms playtest the server before any human does.</p></li>
+      <li><div class="td">NOV 12, 2026</div><h3>The Discord opens</h3><p>The Necrowing.dev Lair goes up as home for players and the devlog.</p></li>
+      <li><div class="td">NOV 13, 2026</div><h3>play.necrowing.dev goes live</h3><p>The server gets its own address and this site launches.</p></li>
+      <li class="now"><div class="td">NOW · DAY <span data-day>1</span></div><h3>Pre-alpha playtests</h3><p>Founding members wanted. <span id="next-member">Join the Discord and be one of the first.</span></p></li>
+    </ol>
   </section>
 
-  <section aria-labelledby="follow">
-    <h2 id="follow">&gt; FOLLOW THE BUILD</h2>
-    <div class="links">
-      <a class="primary" id="discord" href="https://discord.gg/XgcZg9ujkb" rel="noopener">JOIN THE DISCORD</a>
-      <a href="https://www.tiktok.com/@necrowing" rel="noopener">TIKTOK</a>
-      <a href="https://www.instagram.com/necrowing" rel="noopener">INSTAGRAM</a>
-      <a href="https://www.youtube.com/@necrowing" rel="noopener">YOUTUBE</a>
+  <section id="faq" class="wrap">
+    <div class="eyebrow">GOT QUESTIONS?</div>
+    <h2>Frequently asked</h2>
+    <div class="faq">
+      <details><summary>What is Necrowing?</summary><p>Necrowing is an indie dev building blocky worlds. The first project is a Minecraft MMO server at play.necrowing.dev, inspired by old-school EverQuest: classes, groups, named camps, loot and corpse runs, on a vanilla base.</p></details>
+      <details><summary>Is it free?</summary><p>Yes. There's no store and nothing to buy.</p></details>
+      <details><summary>Do I need mods or a launcher?</summary><p>No. Join with a normal Minecraft client. The only optional mod is <a href="#voice">Simple Voice Chat</a>, if you want proximity voice.</p></details>
+      <details><summary>Can I play on Bedrock (phone, console)?</summary><p>Yes. Add <b>bedrock.necrowing.dev</b> with port <b>58764</b> and you'll share the same world as Java players. Voice chat is Java-only for now.</p></details>
+      <details><summary>How do I get whitelisted?</summary><p>Join the <a data-discord href="#" rel="noopener">Discord</a> and post your in-game name in #whitelist-requests.</p></details>
+      <details><summary>Is it finished?</summary><p>No. It's pre-alpha, so expect bugs, changes and progress wipes while systems are tuned. Your feedback shapes what gets built next.</p></details>
+      <details><summary>Where can I follow development?</summary><p>The #devlog channel in the Discord, plus TikTok, Instagram and YouTube at <b>@necrowing</b>.</p></details>
     </div>
   </section>
 
-  <footer>
-    <p>© <span id="yr">2026</span> Necrowing · Not affiliated with Mojang or Microsoft.</p>
-  </footer>
+  <section class="wrap cta-band">
+    <h2>Be a founding member</h2>
+    <p class="lede">The world is new and every #1 spot is still open.</p>
+    <div class="hero-btns">
+      <button class="btn btn-accent copy" data-copy="hero-addr">Copy Server IP</button>
+      <a class="btn btn-dc" data-discord href="#" rel="noopener">Join the Discord</a>
+    </div>
+  </section>
 </main>
+
+<footer class="foot">
+  <div class="wrap fgrid2">
+    <div>
+      <a class="brand" href="#top"><img src="/assets/logo.png" alt="" width="34" height="34"><span>NECROWING</span></a>
+      <p>Indie dev building blocky worlds. Vanilla Minecraft plus an MMO system built from scratch.</p>
+      <p class="mono">play.necrowing.dev</p>
+    </div>
+    <div>
+      <div class="fh">NAVIGATION</div>
+      <a href="#features">Features</a><a href="#join">How to Join</a><a href="#story">Story</a><a href="#faq">FAQ</a>
+    </div>
+    <div>
+      <div class="fh">FOLLOW THE BUILD</div>
+      <a data-discord href="#" rel="noopener">Discord</a>
+      <a href="https://www.tiktok.com/@necrowing" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/necrowing" rel="noopener">Instagram</a>
+      <a href="https://www.youtube.com/@necrowing" rel="noopener">YouTube</a>
+    </div>
+  </div>
+  <div class="wrap legal">© <span id="yr">2026</span> Necrowing · Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</div>
+</footer>
 <script>
   // Set the Discord invite here; the button stays hidden until it's filled in.
   const DISCORD_INVITE = "https://discord.gg/XgcZg9ujkb";
-  if (DISCORD_INVITE) { const d = document.getElementById("discord"); d.href = DISCORD_INVITE; d.hidden = false; document.querySelector(".cta-discord").href = DISCORD_INVITE; }
+  const INVITE_CODE = DISCORD_INVITE.split("/").pop();
+  document.querySelectorAll("a[data-discord]").forEach(a => a.href = DISCORD_INVITE);
   document.getElementById("yr").textContent = new Date().getFullYear();
 
   // Classes: mirrors classes.yml / abilities.yml in the server plugin.
@@ -615,9 +838,48 @@
   });
   document.querySelectorAll("button.copy").forEach(b => b.addEventListener("click", async () => {
     const t = document.getElementById(b.dataset.copy).textContent;
-    try { await navigator.clipboard.writeText(t); b.textContent = "COPIED"; }
-    catch (e) { b.textContent = "SELECT"; }
-    setTimeout(() => b.textContent = "COPY", 1500);
+    const label = b.dataset.label || (b.dataset.label = b.textContent);
+    try { await navigator.clipboard.writeText(t); b.textContent = "Copied!"; }
+    catch (e) { b.textContent = t; }
+    setTimeout(() => b.textContent = label, 1500);
+  }));
+
+
+  // ---- Live data -------------------------------------------------------
+  const STARTED = new Date("2026-10-31T00:00:00-07:00"); // first line of code
+  const day = Math.max(1, Math.floor((Date.now() - STARTED) / 864e5) + 1);
+  document.querySelectorAll("[data-day]").forEach(el => el.textContent = day);
+  const fmt = n => n.toLocaleString("en-US");
+  (async () => {
+    const pill = document.getElementById("st-server"), big = document.getElementById("tile-players"), lbl = document.getElementById("tile-players-l");
+    try {
+      const j = await (await fetch("https://api.mcsrvstat.us/3/play.necrowing.dev")).json();
+      if (j.online) {
+        const on = j.players ? j.players.online : 0, max = j.players ? j.players.max : 0;
+        pill.innerHTML = `<i class="dot on"></i><b>${fmt(on)}</b> Online now`;
+        big.textContent = fmt(on); lbl.textContent = `PLAYERS ONLINE · ${max} SLOTS`;
+      } else {
+        pill.innerHTML = `<i class="dot off"></i>Server offline · playtests announced in Discord`;
+        big.textContent = "Offline"; lbl.textContent = "BETWEEN PLAYTESTS";
+      }
+    } catch (e) { pill.innerHTML = `<i class="dot off"></i>Status unavailable`; }
+  })();
+  (async () => {
+    const pill = document.getElementById("st-discord"), big = document.getElementById("tile-discord");
+    try {
+      const j = await (await fetch(`https://discord.com/api/v10/invites/${INVITE_CODE}?with_counts=true`)).json();
+      const n = j.approximate_member_count;
+      if (!n) throw 0;
+      pill.innerHTML = `<i class="dot dc"></i><b>${fmt(n)}</b> Discord member${n === 1 ? "" : "s"}`;
+      big.textContent = fmt(n);
+      document.getElementById("next-member").innerHTML = `Join the Discord now and you'll be member <b>#${fmt(n + 1)}</b>.`;
+    } catch (e) { pill.innerHTML = `<i class="dot dc"></i>Discord community`; }
+  })();
+
+  // Join tabs
+  document.querySelectorAll(".jtabs button").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll(".jtabs button").forEach(x => x.setAttribute("aria-selected", String(x === b)));
+    document.querySelectorAll(".jpane").forEach(p => p.hidden = p.id !== b.getAttribute("aria-controls"));
   }));
 </script>
 </body>
