@@ -123,6 +123,31 @@
   .chips span { background: #0e0d13; border: 2px solid var(--line); padding: 3px 9px; font-size: 19px; color: var(--stone); }
   .chips span em { font-style: normal; color: var(--muted); font-size: 16px; }
   .panel code { font-family: inherit; color: var(--violet-hi); }
+  .boards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 10px; }
+  @media (max-width: 640px) { .boards { grid-template-columns: 1fr 1fr; } }
+  .board { background: #0e0d13; border: 2px solid var(--line); padding: 8px 10px; }
+  .board .bn { font-family: "Silkscreen", monospace; font-size: 10px; color: var(--muted); letter-spacing: 1px; }
+  .board .b1 { color: #ffaa00; font-size: 20px; margin-top: 2px; }
+  .board .b1 span { color: var(--stone-dim); font-size: 17px; }
+  .first-banner { border: 2px solid #ffaa00; background: linear-gradient(135deg, rgba(255,170,0,.12), rgba(85,255,85,.06)); padding: 12px 16px; box-shadow: 0 0 14px rgba(255,170,0,.25), 4px 4px 0 #000; margin-bottom: 6px; }
+  .first-banner p { margin: 6px 0 0; }
+  .fb-tag { font-family: "Silkscreen", monospace; font-size: 13px; color: #ffaa00; letter-spacing: 2px; }
+  .mp, .grad { background: linear-gradient(90deg, #ffaa00, #55ff55); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .preview { background: #0e0d13 linear-gradient(#26324a, #0e0d13 70%); border: 2px solid var(--line); padding: 18px 14px 12px; margin-bottom: 12px; text-align: center; }
+  .pv-world { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 14px; }
+  .pv-tag { background: rgba(0,0,0,.45); padding: 2px 8px; font-size: 22px; max-width: 100%; text-shadow: 2px 2px 0 rgba(0,0,0,.6); }
+  .pv-head { width: 44px; height: 44px; image-rendering: pixelated; box-shadow: 4px 4px 0 #000;
+    background: linear-gradient(#3b2a20 0 30%, transparent 30%), linear-gradient(90deg, transparent 18%, #fff 18% 32%, transparent 32% 68%, #fff 68% 82%, transparent 82%) 0 45%/100% 14% no-repeat, #c69c7a; }
+  .pv-chat { text-align: left; background: rgba(0,0,0,.5); padding: 6px 10px; font-size: 20px; text-shadow: 2px 2px 0 rgba(0,0,0,.6); overflow-wrap: anywhere; }
+  .pv-meta { text-align: left; color: var(--muted); font-size: 17px; margin-top: 8px; min-height: 22px; }
+  .pv-meta .ann { color: #ffaa00; }
+  .tgroup { margin-bottom: 10px; }
+  .tgroup h4 { font-family: "Silkscreen", monospace; font-size: 11px; color: var(--muted); letter-spacing: 1px; margin: 0 0 6px; }
+  .tchips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tchips button { font: inherit; font-size: 19px; cursor: pointer; background: #2b2836; border: 2px solid var(--line); padding: 2px 9px; text-shadow: 1px 1px 0 rgba(0,0,0,.6); }
+  .tchips button:hover { border-color: var(--web); }
+  .tchips button[aria-pressed="true"] { border-color: var(--violet-hi); background: #3a3450; }
+  .tchips button.first { border-color: #ffaa00; }
   .nametag { display: inline-block; background: rgba(0,0,0,.55); padding: 4px 10px; font-size: 22px; margin: 2px 0 10px; }
   .stance-note { color: var(--stone-dim); font-size: 20px; margin: 0 0 14px; }
   .stance-note b { color: var(--text); font-weight: normal; }
@@ -218,7 +243,7 @@
         <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="loot">Loot &amp; items<span class="chev" aria-hidden="true">▶</span></button></li>
         <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="death">Death &amp; corpse runs<span class="chev" aria-hidden="true">▶</span></button></li>
         <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="travel">Travel &amp; ports<span class="chev" aria-hidden="true">▶</span></button></li>
-        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="titles">Titles &amp; achievements<span class="chev" aria-hidden="true">▶</span></button></li>
+        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="titles">Titles &amp; leaderboards<span class="chev" aria-hidden="true">▶</span></button></li>
         <li>No modpack needed</li>
         <li>Java + Bedrock</li>
         <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="voice">Proximity voice chat<span class="chev" aria-hidden="true">▶</span></button></li>
@@ -319,30 +344,38 @@
       </div>
 
       <div class="panel" id="titles" hidden>
-        <p>Wear a title on your nametag and in chat:</p>
-        <div class="nametag"><span style="color:#8a849c">[20 Necromancer]</span> Jonathan <span style="color:#9f8fd6">the Gravecaller</span></div>
-        <h3 class="ph">SOME TITLES TO EARN</h3>
-        <div class="chips">
-          <span>the Ironclad <em>Warrior 20</em></span>
-          <span>the Lightbringer <em>Cleric 20</em></span>
-          <span>the Arcanist <em>Wizard 20</em></span>
-          <span>the Shadowblade <em>Rogue 20</em></span>
-          <span>the Gravecaller <em>Necro 20</em></span>
-          <span>the Packleader <em>Beastlord 20</em></span>
-          <span>the Songweaver <em>Bard 20</em></span>
-          <span>Elder <em>level 50</em></span>
-          <span>the Stoneheart <em>Mining 100</em></span>
-          <span>the Provisioner <em>every gathering skill 150</em></span>
-          <span>Giantslayer <em>100 red-con kills</em></span>
-          <span>the Corpse Runner <em>25 corpses recovered</em></span>
-          <span>Master Builder <em>250k blocks placed</em></span>
-          <span>the Merchant Prince <em>first player ever only</em></span>
+        <div class="first-banner">
+          <div class="fb-tag">★ SERVER FIRST</div>
+          <p><b>Some titles exist once per server.</b> The first player to earn one keeps it, the whole server hears about it, and everyone after can only see who got there first. <span class="mp">the Merchant Prince</span> goes to the first player to spend 100 platinum. Who claims it?</p>
         </div>
-        <p>Some titles are <b>secret</b> until someone earns them. Some can only be claimed <b>once per server</b>. Hit level 50 and your class takes a new name, so Warriors become Knights.</p>
-        <h3 class="ph">ACHIEVEMENTS &amp; RECORDS</h3>
+        <h3 class="ph">TRY ON A TITLE</h3>
+        <p>Your title shows <b>above your head</b> and <b>in chat</b>, in full color. Gradients included. Big ones also change the color of your name. Pick one:</p>
+        <div class="preview" aria-live="polite">
+          <div class="pv-world">
+            <div class="pv-tag" id="pv-tag"></div>
+            <div class="pv-head" aria-hidden="true"></div>
+          </div>
+          <div class="pv-chat" id="pv-chat"></div>
+          <div class="pv-meta" id="pv-meta"></div>
+        </div>
+        <div id="title-groups"></div>
+        <p>Hit level 50 and your class itself takes a new name, so Warriors become <b>Knights</b> and Necromancers become <b>Hexed Ones</b>. Some titles stay <b>secret</b> until someone earns them.</p>
+        <h3 class="ph">LEADERBOARDS</h3>
+        <p>The server counts everything you do, and <code>/top</code> ranks it. Every board is empty right now, so <b>every #1 spot is up for grabs</b>.</p>
+        <div class="boards">
+          <div class="board"><div class="bn">⚔ MOBS SLAIN</div><div class="b1">#1 <span>unclaimed</span></div></div>
+          <div class="board"><div class="bn">☠ NAMED SLAIN</div><div class="b1">#1 <span>unclaimed</span></div></div>
+          <div class="board"><div class="bn">✚ HEALING DONE</div><div class="b1">#1 <span>unclaimed</span></div></div>
+          <div class="board"><div class="bn">⛏ BLOCKS MINED</div><div class="b1">#1 <span>unclaimed</span></div></div>
+          <div class="board"><div class="bn">🎣 FISH CAUGHT</div><div class="b1">#1 <span>unclaimed</span></div></div>
+          <div class="board"><div class="bn">⚰ CORPSES RECOVERED</div><div class="b1">#1 <span>unclaimed</span></div></div>
+          <div class="board"><div class="bn">✦ RARE DROPS</div><div class="b1">#1 <span>unclaimed</span></div></div>
+          <div class="board"><div class="bn">⛃ PEAK WEALTH</div><div class="b1">#1 <span>unclaimed</span></div></div>
+        </div>
+        <p>There are dozens more boards, including damage dealt, dodges, crits, distance traveled, blocks placed and time played. Open <code>/records</code> in game and click any record to see its board.</p>
+        <h3 class="ph">ACHIEVEMENTS</h3>
         <ul class="dots">
           <li>Achievements in <b>Adventure, Combat and Loot</b> tabs, with progress bars. On Java they also show up on the advancements screen (L), with toasts.</li>
-          <li>Records track everything from named kills to blocks mined, with <b>leaderboards</b> (<code>/top</code>).</li>
           <li>Prefer to stay mysterious? <code>/anon</code> hides your level, class and title.</li>
         </ul>
       </div>
@@ -471,6 +504,91 @@
       </div>
       <div class="stats">${bars}</div>`;
   }
+
+  // Titles: mirrors titles.yml (text colors, name-color, prefix/suffix, announce, first-only).
+  const MC = { gray: "#AAAAAA", dark_gray: "#555555", green: "#55FF55", gold: "#FFAA00", dark_purple: "#AA00AA",
+    aqua: "#55FFFF", dark_red: "#AA0000", yellow: "#FFFF55", blue: "#5555FF", red: "#FF5555", dark_aqua: "#00AAAA", white: "#FFFFFF" };
+  const col = c => MC[c] || c;
+  // [id, text, colors (1 = solid, 2+ = gradient), how to earn, opts: p = prefix, n = name color, a = announced, f = server first, cls = class shown]
+  const TITLE_GROUPS = [
+    ["SERVER FIRST", [
+      ["merchant_prince", "the Merchant Prince", ["gold", "green"], "First player on the server to spend 100 platinum", { n: "gold", f: 1 }]]],
+    ["CLASS · LEVEL 20", [
+      ["ironclad", "the Ironclad", ["dark_red"], "Warrior, level 20", { n: "dark_red", cls: "Warrior" }],
+      ["lightbringer", "the Lightbringer", ["yellow"], "Cleric, level 20", { n: "yellow", cls: "Cleric" }],
+      ["arcanist", "the Arcanist", ["blue"], "Wizard, level 20", { n: "blue", cls: "Wizard" }],
+      ["shadowblade", "the Shadowblade", ["dark_gray"], "Rogue, level 20", { n: "gray", cls: "Rogue" }],
+      ["gravecaller", "the Gravecaller", ["dark_purple"], "Necromancer, level 20", { n: "dark_purple", cls: "Necromancer" }],
+      ["packleader", "the Packleader", ["gold"], "Beastlord, level 20", { n: "gold", cls: "Beastlord" }],
+      ["songweaver", "the Songweaver", ["aqua"], "Bard, level 20", { n: "aqua", cls: "Bard" }]]],
+    ["FISHING & GATHERING", [
+      ["angler", "the Angler", ["aqua"], "Fishing 100", {}],
+      ["master_angler", "Master Angler", ["aqua", "blue"], "Fishing 200", { p: 1, a: 1 }],
+      ["stoneheart", "the Stoneheart", ["#b0a090"], "Mining 100", {}],
+      ["lumberjack", "the Lumberjack", ["#b5835a"], "Woodcutting 100", {}],
+      ["earthshaper", "the Earthshaper", ["#c2a878"], "Excavation 100", {}],
+      ["herbalist", "the Herbalist", ["green"], "Herbalism 100", {}],
+      ["provisioner", "the Provisioner", ["gold", "green"], "All five gathering skills at 150", { n: "gold", a: 1 }]]],
+    ["BUILDERS", [
+      ["mason", "the Mason", ["gray"], "10,000 blocks placed", {}],
+      ["architect", "the Architect", ["aqua"], "50,000 blocks placed", { n: "dark_aqua" }],
+      ["master_builder", "Master Builder", ["gold", "yellow"], "250,000 blocks placed", { p: 1, n: "gold", a: 1 }]]],
+    ["DEEDS", [
+      ["veteran", "the Veteran", ["green"], "Reach level 20", {}],
+      ["elder", "Elder", ["gold"], "Reach level 50", { p: 1, a: 1 }],
+      ["giantslayer", "Giantslayer", ["red"], "100 red-con kills", { p: 1, a: 1 }],
+      ["corpse_runner", "the Corpse Runner", ["dark_gray"], "Recover 25 of your corpses", {}],
+      ["far_traveled", "the Far-Traveled", ["aqua"], "Travel 100,000 blocks", {}],
+      ["unkillable", "the Unkillable", ["gold", "red"], "5 flawless dungeon events", { n: "gold", a: 1 }],
+      ["lifebinder", "the Lifebinder", ["green", "aqua"], "Earn the Lifeline achievement", { n: "green" }],
+      ["accomplished", "the Accomplished", ["yellow", "gold"], "Any 25 achievements", { n: "yellow", a: 1 }]]],
+  ];
+  function paint(text, colors) {
+    const span = document.createElement("span");
+    span.textContent = text;
+    if (colors.length > 1) {
+      span.style.background = `linear-gradient(90deg, ${colors.map(col).join(", ")})`;
+      span.style.webkitBackgroundClip = "text"; span.style.backgroundClip = "text"; span.style.color = "transparent";
+      span.style.textShadow = "none";
+    } else span.style.color = col(colors[0]);
+    return span;
+  }
+  const PLAYER = "Necro";
+  function renderTitle(t) {
+    const [, text, colors, how, o] = t;
+    const lvl = o.cls ? "20 " + o.cls : "50 Cleric";
+    const parts = () => {
+      const frag = document.createDocumentFragment();
+      frag.append(paint(`[${lvl}] `, ["gray"]));
+      const name = paint(PLAYER, [o.n || "white"]);
+      if (o.p) frag.append(paint(text, colors), " ", name);
+      else frag.append(name, " ", paint(text, colors));
+      return frag;
+    };
+    const tag = document.getElementById("pv-tag"); tag.replaceChildren(parts());
+    const chat = document.getElementById("pv-chat"); chat.replaceChildren(parts(), paint(": ", ["gray"]), "anyone up for a corpse run?");
+    const meta = document.getElementById("pv-meta");
+    meta.replaceChildren("How to earn: " + how + (o.n ? " · turns your name " + o.n.replace("_", " ") : ""));
+    if (o.a) { const s = document.createElement("span"); s.className = "ann"; s.textContent = " · 📣 announced to the whole server"; meta.append(s); }
+    if (o.f) { const s = document.createElement("span"); s.className = "ann"; s.textContent = " · ★ only one player can ever hold it"; meta.append(s); }
+  }
+  const groupsEl = document.getElementById("title-groups");
+  const chipEls = [];
+  TITLE_GROUPS.forEach(([label, list]) => {
+    const g = document.createElement("div"); g.className = "tgroup";
+    const h = document.createElement("h4"); h.textContent = label; g.append(h);
+    const wrap = document.createElement("div"); wrap.className = "tchips";
+    list.forEach(t => {
+      const b = document.createElement("button"); b.type = "button";
+      if (t[4].f) b.classList.add("first");
+      b.setAttribute("aria-pressed", "false");
+      b.append(paint(t[1], t[2]));
+      b.addEventListener("click", () => { chipEls.forEach(c => c.setAttribute("aria-pressed", String(c === b))); renderTitle(t); });
+      chipEls.push(b); wrap.append(b);
+    });
+    g.append(wrap); groupsEl.append(g);
+  });
+  chipEls[0].click();
 
   // Expandable feature tiles: one panel open at a time; #loot, #death etc. in the URL open one.
   const toggles = [...document.querySelectorAll("button.feat-btn")];
