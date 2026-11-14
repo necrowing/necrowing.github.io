@@ -84,8 +84,35 @@
   button.feat-btn:hover { background: #221e2e; }
   button.feat-btn[aria-expanded="true"]:hover { background: var(--violet-hi); }
 
-  #classes { margin-top: 18px; border-top: 2px dashed var(--line); padding-top: 18px; }
-  #classes[hidden] { display: none; }
+  .panel { margin-top: 18px; border-top: 2px dashed var(--line); padding-top: 18px; }
+  .panel[hidden] { display: none; }
+  .panel h3.ph { font-family: "Silkscreen", monospace; font-size: 18px; color: var(--violet-hi); margin: 18px 0 8px; letter-spacing: 1px; }
+  .panel h3.ph:first-child { margin-top: 0; }
+  .panel p { margin: 0 0 10px; color: var(--stone); }
+  .panel p b, .panel td b { color: var(--text); font-weight: normal; }
+  .panel .quote { color: var(--muted); font-style: italic; }
+  .tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 10px; }
+  @media (max-width: 640px) { .tiers { grid-template-columns: 1fr 1fr; } }
+  .tier { background: #0e0d13; border: 2px solid var(--t); padding: 10px 12px; }
+  .tier .tn { font-family: "Silkscreen", monospace; font-size: 14px; color: var(--t); letter-spacing: 1px; }
+  .tier .td { font-size: 18px; color: var(--stone-dim); margin-top: 4px; }
+  .tier.unique { box-shadow: 0 0 12px rgba(232,180,60,.45), 4px 4px 0 #000; }
+  ul.dots { list-style: none; margin: 0 0 10px; padding: 0; }
+  ul.dots li { padding: 3px 0 3px 18px; position: relative; color: var(--stone); }
+  ul.dots li::before { content: "▪"; position: absolute; left: 0; color: var(--violet-hi); }
+  ol.steps { list-style: none; counter-reset: s; margin: 0 0 10px; padding: 0; display: grid; gap: 8px; }
+  ol.steps li { counter-increment: s; background: #0e0d13; border: 2px solid var(--line); padding: 10px 12px 10px 52px; position: relative; color: var(--stone); }
+  ol.steps li::before { content: counter(s); position: absolute; left: 12px; top: 8px; font-family: "Silkscreen", monospace; font-size: 20px; color: var(--violet-hi); }
+  table.tt { width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 20px; }
+  table.tt th { font-family: "Silkscreen", monospace; font-size: 11px; color: var(--muted); text-align: left; letter-spacing: 1px; padding: 0 8px 6px 0; font-weight: normal; }
+  table.tt td { border-top: 2px solid var(--line); padding: 7px 8px 7px 0; vertical-align: top; color: var(--stone-dim); }
+  table.tt td:first-child { color: var(--text); white-space: nowrap; }
+  @media (max-width: 640px) { table.tt, table.tt tbody, table.tt tr, table.tt td { display: block; } table.tt thead { display: none; } table.tt td { border: 0; padding: 0 0 2px; white-space: normal !important; } table.tt tr { border-top: 2px solid var(--line); padding: 8px 0; } }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .chips span { background: #0e0d13; border: 2px solid var(--line); padding: 3px 9px; font-size: 19px; color: var(--stone); }
+  .chips span em { font-style: normal; color: var(--muted); font-size: 16px; }
+  .panel code { font-family: inherit; color: var(--violet-hi); }
+  .nametag { display: inline-block; background: rgba(0,0,0,.55); padding: 4px 10px; font-size: 22px; margin: 2px 0 10px; }
   .stance-note { color: var(--stone-dim); font-size: 20px; margin: 0 0 14px; }
   .stance-note b { color: var(--text); font-weight: normal; }
   .picker { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
@@ -171,17 +198,102 @@
       <p class="pitch">Too many mods. Too much bloat. So we went back to <b>vanilla Minecraft</b> and added one thing: <b>an MMO system built from scratch</b>.</p>
       <ul class="feats">
         <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="classes">Classes &amp; stances<span class="chev" aria-hidden="true">▶</span></button></li>
+        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="loot">Loot &amp; items<span class="chev" aria-hidden="true">▶</span></button></li>
+        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="death">Death &amp; corpse runs<span class="chev" aria-hidden="true">▶</span></button></li>
+        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="travel">Travel &amp; ports<span class="chev" aria-hidden="true">▶</span></button></li>
+        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="titles">Titles &amp; achievements<span class="chev" aria-hidden="true">▶</span></button></li>
         <li>Group up &amp; raid</li>
-        <li>Loot &amp; leveling</li>
         <li>No modpack needed</li>
         <li>Java + Bedrock</li>
         <li>Proximity voice chat</li>
       </ul>
 
-      <div id="classes" hidden>
+      <div class="panel" id="classes" hidden>
         <p class="stance-note">Seven classes, each with a role in the group. You carry <b>one emblem</b> on your hotbar: use it to swap into <b>stance</b>, where your abilities live, then swap back to build and mine. New abilities slot in as you level.</p>
         <div class="picker" role="tablist" aria-label="Classes"></div>
         <div class="cls" role="tabpanel" aria-live="polite"></div>
+      </div>
+
+      <div class="panel" id="loot" hidden>
+        <h3 class="ph">GEAR DROPS IN FOUR TIERS</h3>
+        <div class="tiers">
+          <div class="tier" style="--t:#a8a4b4"><div class="tn">NORMAL</div><div class="td">Plain vanilla gear.</div></div>
+          <div class="tier" style="--t:#5f8fff"><div class="tn">MAGIC</div><div class="td">1–2 bonuses like +5 STR or +mana.</div></div>
+          <div class="tier" style="--t:#f2d64b"><div class="tn">RARE</div><div class="td">3–4 bonuses. It glows when it drops.</div></div>
+          <div class="tier unique" style="--t:#e8b43c"><div class="tn">UNIQUE</div><div class="td">Hand-made items with their own icons and particle auras.</div></div>
+        </div>
+        <ul class="dots">
+          <li>Hostile mobs drop <b>Magic</b> and <b>Rare</b> gear of their level. <b>Named mobs</b> camp fixed spots on respawn timers and carry their own loot tables, including the uniques.</li>
+          <li>It's all still vanilla gear underneath, so you can enchant, repair and mend it as usual. If you're under-leveled or the wrong class, only the bonuses go dormant.</li>
+        </ul>
+        <h3 class="ph">IMBUING</h3>
+        <p>Grind magic gear at a grindstone for <b>Imbuing Flux</b>. Then sneak + right-click an enchanting table with a full library to roll plain gear into a Magic item, or spend a <b>Gem of Secrets</b> (named mobs only) to reroll an item's bonuses and lock the one you like.</p>
+        <h3 class="ph">COIN &amp; TRADE</h3>
+        <ul class="dots">
+          <li>Mobs drop <b>copper, silver, gold and platinum</b>. Coin you carry falls on your corpse when you die, so bank it.</li>
+          <li>A <b>Banker</b> in every village, a server-wide <b>auction house</b> (<code>/ah</code>), mail and player-to-player trade windows.</li>
+        </ul>
+        <h3 class="ph">SKILLS BY USE</h3>
+        <p>Swords, archery, dodge, mining, fishing and more rise as you use them. Gathering skills speed you up, double your drops and turn up <b>rare finds</b> like buried magic items and travel scrolls.</p>
+      </div>
+
+      <div class="panel" id="death" hidden>
+        <p class="quote">"Camp the named. Fear the corpse run."</p>
+        <ol class="steps">
+          <li><b>You die.</b> You lose 10% of a level's XP, and yes, you can lose a level. Falls, lava and the void all count. Dying is never a free trip home.</li>
+          <li><b>Your stuff stays behind.</b> Your gear and carried coin stay on your corpse where you fell. <code>/corpse</code> points your compass at it.</li>
+          <li><b>Go get it.</b> You have <b>2 hours</b> before it rots and everything on it is gone. Bring friends if it's somewhere nasty.</li>
+          <li><b>Or find a Cleric.</b> A <b>Resurrection</b> brings back most of the XP you lost and moves you to your corpse. You can also pay for a trip back to your corpse right after you respawn, but that won't return any XP.</li>
+        </ol>
+        <h3 class="ph">CON BEFORE YOU PULL</h3>
+        <p><code>/con</code> colors a mob from <b style="color:#a8a4b4">gray</b> (no XP) to <b style="color:#ff5c5c">red</b> (run). Mobs get tougher the farther you go from spawn, and mobs keep a <b>hate list</b>, so the tank has to hold aggro. Some levels are <b>hell levels</b> that need 50% more XP.</p>
+        <p>Deaths to other players cost no XP.</p>
+      </div>
+
+      <div class="panel" id="travel" hidden>
+        <p>Travel is earned. There's <b>no /warp, /home or /tpa</b>. Walking is the default, which is what makes corpse runs, far-off camps and Wizards worth something.</p>
+        <table class="tt">
+          <thead><tr><th>WAY HOME</th><th>WHO</th><th>HOW</th></tr></thead>
+          <tbody>
+            <tr><td>Bind</td><td>Everyone</td><td>Sleep in a bed. That's where you respawn and where Gate takes you.</td></tr>
+            <tr><td>Gate</td><td>Wizard, Cleric, Necro (lvl 5)</td><td>8s cast back to your bind. Any hit breaks it, and it has a 15-minute recast, so it won't save you mid-fight.</td></tr>
+            <tr><td>Song of Homecoming</td><td>Bard (lvl 15)</td><td>The Bard's Gate. Stand still and sing yourself home.</td></tr>
+            <tr><td>Soulbind</td><td>Necromancer (lvl 8)</td><td>Binds you or a friend to the exact spot, such as a camp out in the wilds.</td></tr>
+            <tr><td>Combine Port</td><td>Wizard (lvl 10)</td><td>Opens a portal for the whole group to any active beacon. Costs mana and coin.</td></tr>
+            <tr><td>Scrolls</td><td>Anyone</td><td>Blank Scrolls are rare fishing and digging finds. Inscribe one at a beacon to make a Scroll of Port. A Scroll of Return takes you home.</td></tr>
+          </tbody>
+        </table>
+        <h3 class="ph">BEACONS ARE THE PORT NETWORK</h3>
+        <p>Build a beacon, give it a name, and it shows up on everyone's map and becomes a Wizard port. You can see the beam from far away, and the Nether Star cost keeps the network small.</p>
+      </div>
+
+      <div class="panel" id="titles" hidden>
+        <p>Wear a title on your nametag and in chat:</p>
+        <div class="nametag"><span style="color:#8a849c">[20 Necromancer]</span> Jonathan <span style="color:#9f8fd6">the Gravecaller</span></div>
+        <h3 class="ph">SOME TITLES TO EARN</h3>
+        <div class="chips">
+          <span>the Ironclad <em>Warrior 20</em></span>
+          <span>the Lightbringer <em>Cleric 20</em></span>
+          <span>the Arcanist <em>Wizard 20</em></span>
+          <span>the Shadowblade <em>Rogue 20</em></span>
+          <span>the Gravecaller <em>Necro 20</em></span>
+          <span>the Packleader <em>Beastlord 20</em></span>
+          <span>the Songweaver <em>Bard 20</em></span>
+          <span>Elder <em>level 50</em></span>
+          <span>the Stoneheart <em>Mining 100</em></span>
+          <span>the Provisioner <em>every gathering skill 150</em></span>
+          <span>Giantslayer <em>100 red-con kills</em></span>
+          <span>the Corpse Runner <em>25 corpses recovered</em></span>
+          <span>Master Builder <em>250k blocks placed</em></span>
+          <span>the Merchant Prince <em>first player ever only</em></span>
+        </div>
+        <p>Some titles are <b>secret</b> until someone earns them. Some can only be claimed <b>once per server</b>. Hit level 50 and your class takes a new name, so Warriors become Knights.</p>
+        <h3 class="ph">ACHIEVEMENTS &amp; RECORDS</h3>
+        <ul class="dots">
+          <li>Achievements in <b>Adventure, Combat and Loot</b> tabs, with progress bars. On Java they also show up on the advancements screen (L), with toasts.</li>
+          <li>Records track everything from named kills to blocks mined, with <b>leaderboards</b> (<code>/top</code>).</li>
+          <li>Prefer to stay mysterious? <code>/anon</code> hides your level, class and title.</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -270,7 +382,7 @@
   const panel = document.getElementById("classes");
   const picker = panel.querySelector(".picker");
   const card = panel.querySelector(".cls");
-  const toggle = document.querySelector("button.feat-btn");
+
 
   CLASSES.forEach((k, i) => {
     const b = document.createElement("button");
@@ -309,17 +421,26 @@
       <div class="stats">${bars}</div>`;
   }
 
-  function setOpen(open) {
-    toggle.setAttribute("aria-expanded", String(open));
-    panel.hidden = !open;
+  // Expandable feature tiles: one panel open at a time; #loot, #death etc. in the URL open one.
+  const toggles = [...document.querySelectorAll("button.feat-btn")];
+  function openPanel(id, scroll) {
+    toggles.forEach(t => {
+      const on = t.getAttribute("aria-controls") === id;
+      t.setAttribute("aria-expanded", String(on));
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+    });
+    const el = id && document.getElementById(id);
+    if (el && scroll) el.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
-  toggle.addEventListener("click", () => {
-    const open = toggle.getAttribute("aria-expanded") !== "true";
-    setOpen(open);
-    if (open) panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  });
+  toggles.forEach(t => t.addEventListener("click", () => {
+    const id = t.getAttribute("aria-controls");
+    const open = t.getAttribute("aria-expanded") !== "true";
+    openPanel(open ? id : null, open);
+    history.replaceState(null, "", open ? "#" + id : location.pathname);
+  }));
   show(0);
-  if (location.hash === "#classes") setOpen(true);
+  const fromHash = location.hash.slice(1);
+  if (toggles.some(t => t.getAttribute("aria-controls") === fromHash)) openPanel(fromHash, true);
   document.querySelectorAll("button.copy").forEach(b => b.addEventListener("click", async () => {
     const t = document.getElementById(b.dataset.copy).textContent;
     try { await navigator.clipboard.writeText(t); b.textContent = "COPIED"; }
