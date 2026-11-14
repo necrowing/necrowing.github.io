@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Necrowing · EQCore Minecraft MMO</title>
+<meta name="description" content="Necrowing is an indie dev building blocky worlds. Play EQCore, a Minecraft MMO on a vanilla base: classes, groups, raids and loot. Java and Bedrock.">
+<link rel="icon" type="image/png" href="/assets/favicon-64.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:title" content="Necrowing · EQCore Minecraft MMO">
+<meta property="og:description" content="Vanilla Minecraft plus one thing: an MMO system built from scratch. Join at play.necrowing.dev">
+<meta property="og:image" content="https://necrowing.dev/assets/og.png">
+<meta property="og:url" content="https://necrowing.dev/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0a0e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0a0e;
+    --panel: #15131c;
+    --line: #2a2636;
+    --web: #5c5670;
+    --stone: #c9c3dc;
+    --stone-dim: #9690ad;
+    --violet: #6b5b95;
+    --violet-hi: #8f7fc0;
+    --text: #e8e4f2;
+    --muted: #8a849c;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "VT323", ui-monospace, monospace;
+    font-size: 22px;
+    line-height: 1.35;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 50% 30%, #1a1724 0%, transparent 60%),
+      linear-gradient(var(--bg), var(--bg));
+  }
+  .webs {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .55;
+  }
+  main { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 56px 20px 40px; }
+
+  header.hero { text-align: center; }
+  .logo { width: 112px; height: 112px; image-rendering: pixelated; display: block; margin: 0 auto 18px; }
+  h1 {
+    font-family: "Silkscreen", monospace; font-weight: 700;
+    font-size: clamp(44px, 9vw, 88px); letter-spacing: 2px; line-height: 1;
+    margin: 0; color: var(--stone);
+    text-shadow: 3px 3px 0 #4a4260, 6px 6px 0 #2a2538;
+  }
+  .tag { font-family: "Silkscreen", monospace; color: var(--stone-dim); font-size: clamp(14px, 2.6vw, 20px); margin-top: 14px; letter-spacing: 1px; }
+
+  section { margin-top: 56px; }
+  h2 { font-family: "Silkscreen", monospace; font-size: 22px; color: var(--violet-hi); margin: 0 0 14px; letter-spacing: 1px; }
+
+  .card {
+    background: var(--panel); border: 2px solid var(--line);
+    box-shadow: 4px 4px 0 #000; padding: 22px 24px;
+  }
+  .pitch { font-size: 26px; margin: 0 0 10px; }
+  .pitch b { color: var(--stone); font-weight: normal; }
+  ul.feats { list-style: none; padding: 0; margin: 14px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+  ul.feats li { border: 2px solid var(--line); padding: 10px 12px; color: var(--stone); }
+  ul.feats li::before { content: "▪ "; color: var(--violet-hi); }
+
+  .join { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .join { grid-template-columns: 1fr; } }
+  .edition { font-family: "Silkscreen", monospace; font-size: 14px; color: var(--muted); letter-spacing: 1px; }
+  .addr {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    margin-top: 8px; background: #0e0d13; border: 2px solid var(--violet);
+    padding: 10px 12px; font-size: clamp(20px, 5.4vw, 26px); color: var(--text); white-space: nowrap; overflow: hidden;
+  }
+  .port { margin-top: 8px; color: var(--stone-dim); }
+  .port span { color: var(--text); }
+  button.copy {
+    font-family: "Silkscreen", monospace; font-size: 12px; cursor: pointer;
+    background: var(--violet); color: #fff; border: 0; padding: 8px 10px;
+    box-shadow: 2px 2px 0 #000; flex-shrink: 0;
+  }
+  button.copy:hover { background: var(--violet-hi); }
+  button.copy:active { transform: translate(2px,2px); box-shadow: none; }
+  .note { color: var(--muted); font-size: 19px; margin-top: 14px; }
+
+  .links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .links a {
+    font-family: "Silkscreen", monospace; font-size: 14px; text-decoration: none;
+    color: var(--text); background: var(--panel); border: 2px solid var(--line);
+    padding: 12px 16px; box-shadow: 3px 3px 0 #000; letter-spacing: 1px;
+  }
+  .links a:hover { border-color: var(--violet-hi); color: #fff; }
+  .links a.primary { background: var(--violet); border-color: var(--violet-hi); }
+
+  footer { margin-top: 64px; text-align: center; color: var(--muted); font-size: 18px; }
+  footer a { color: var(--stone-dim); }
+  :focus-visible { outline: 2px solid var(--violet-hi); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<svg class="webs" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+  <g fill="none" stroke="#5c5670" stroke-width="1">
+    <path d="M0 0 L180 120 M0 0 L80 210 M0 0 L230 40 M40 26 L60 70 L20 90 M90 60 L120 140 L45 160 M150 100 L180 40 M150 100 L65 190"/>
+    <path d="M1000 0 L820 120 M1000 0 L920 210 M1000 0 L770 40 M960 26 L940 70 L980 90 M910 60 L880 140 L955 160 M850 100 L820 40 M850 100 L935 190"/>
+    <path d="M0 600 L170 470 M0 600 L60 400 M30 580 L70 520 L20 500 M90 550 L130 470 L40 450"/>
+    <path d="M1000 600 L830 470 M1000 600 L940 400 M970 580 L930 520 L980 500 M910 550 L870 470 L960 450"/>
+  </g>
+</svg>
+<main>
+  <header class="hero">
+    <img class="logo" src="/assets/logo.png" alt="Necrowing cobweb block logo" width="112" height="112">
+    <h1>NECROWING</h1>
+    <div class="tag">INDIE DEV · BLOCKY WORLDS</div>
+  </header>
+
+  <section aria-labelledby="eq">
+    <h2 id="eq">&gt; EQCORE</h2>
+    <div class="card">
+      <p class="pitch">Too many mods. Too much bloat. So we went back to <b>vanilla Minecraft</b> and added one thing: <b>an MMO system built from scratch</b>.</p>
+      <ul class="feats">
+        <li>Classes &amp; stances</li>
+        <li>Group up &amp; raid</li>
+        <li>Loot &amp; leveling</li>
+        <li>No modpack needed</li>
+        <li>Java + Bedrock</li>
+        <li>Proximity voice chat</li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="join">
+    <h2 id="join">&gt; JOIN THE SERVER</h2>
+    <div class="join">
+      <div class="card">
+        <div class="edition">JAVA EDITION</div>
+        <div class="addr"><span id="java">play.necrowing.dev</span><button class="copy" data-copy="java">COPY</button></div>
+        <div class="port">Port: <span>default</span></div>
+      </div>
+      <div class="card">
+        <div class="edition">BEDROCK · PHONE · CONSOLE</div>
+        <div class="addr"><span id="bedrock">bedrock.necrowing.dev</span><button class="copy" data-copy="bedrock">COPY</button></div>
+        <div class="port">Port: <span>58764</span></div>
+      </div>
+    </div>
+    <p class="note">Alpha playtest: progress may be wiped while we build. Optional: install the Simple Voice Chat mod for proximity voice.</p>
+  </section>
+
+  <section aria-labelledby="follow">
+    <h2 id="follow">&gt; FOLLOW THE BUILD</h2>
+    <div class="links">
+      <a class="primary" id="discord" href="#" hidden>DISCORD</a>
+      <a href="https://www.tiktok.com/@necrowing" rel="noopener">TIKTOK</a>
+      <a href="https://www.instagram.com/necrowing" rel="noopener">INSTAGRAM</a>
+      <a href="https://github.com/necrowing" rel="noopener">GITHUB</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="yr">2026</span> Necrowing · Not affiliated with Mojang or Microsoft.</p>
+  </footer>
+</main>
+<script>
+  // Set the Discord invite here; the button stays hidden until it's filled in.
+  const DISCORD_INVITE = "";
+  if (DISCORD_INVITE) { const d = document.getElementById("discord"); d.href = DISCORD_INVITE; d.hidden = false; }
+  document.getElementById("yr").textContent = new Date().getFullYear();
+  document.querySelectorAll("button.copy").forEach(b => b.addEventListener("click", async () => {
+    const t = document.getElementById(b.dataset.copy).textContent;
+    try { await navigator.clipboard.writeText(t); b.textContent = "COPIED"; }
+    catch (e) { b.textContent = "SELECT"; }
+    setTimeout(() => b.textContent = "COPY", 1500);
+  }));
+</script>
+</body>
+</html>
