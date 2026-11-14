@@ -198,11 +198,11 @@
       <p class="pitch">Too many mods. Too much bloat. So we went back to <b>vanilla Minecraft</b> and added one thing: <b>an MMO system built from scratch</b>.</p>
       <ul class="feats">
         <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="classes">Classes &amp; stances<span class="chev" aria-hidden="true">▶</span></button></li>
+        <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="targeting">Targeting &amp; groups<span class="chev" aria-hidden="true">▶</span></button></li>
         <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="loot">Loot &amp; items<span class="chev" aria-hidden="true">▶</span></button></li>
         <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="death">Death &amp; corpse runs<span class="chev" aria-hidden="true">▶</span></button></li>
         <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="travel">Travel &amp; ports<span class="chev" aria-hidden="true">▶</span></button></li>
         <li class="expand"><button class="feat-btn" type="button" aria-expanded="false" aria-controls="titles">Titles &amp; achievements<span class="chev" aria-hidden="true">▶</span></button></li>
-        <li>Group up &amp; raid</li>
         <li>No modpack needed</li>
         <li>Java + Bedrock</li>
         <li>Proximity voice chat</li>
@@ -212,6 +212,31 @@
         <p class="stance-note">Seven classes, each with a role in the group. You carry <b>one emblem</b> on your hotbar: use it to swap into <b>stance</b>, where your abilities live, then swap back to build and mine. New abilities slot in as you level.</p>
         <div class="picker" role="tablist" aria-label="Classes"></div>
         <div class="cls" role="tabpanel" aria-live="polite"></div>
+      </div>
+
+      <div class="panel" id="targeting" hidden>
+        <p>Old-school MMO targeting, built on vanilla controls. <b>Right-click a mob to target it</b> (tap on Bedrock). There's no need to be in sword range.</p>
+        <div class="tiers">
+          <div class="tier" style="--t:#8f7fc0"><div class="tn">CLICK</div><div class="td">Right-click whatever's in your crosshair, up to 32 blocks away. Walls block it, and a miss keeps your target.</div></div>
+          <div class="tier" style="--t:#8f7fc0"><div class="tn">HIT</div><div class="td">Hitting a mob targets it too.</div></div>
+          <div class="tier" style="--t:#8f7fc0"><div class="tn">CYCLE</div><div class="td">The Next Target stance slot steps through mobs in front of you, nearest first.</div></div>
+          <div class="tier" style="--t:#8f7fc0"><div class="tn">ASSIST</div><div class="td"><code>/assist &lt;player&gt;</code> takes the tank's target, so everyone hits the same mob.</div></div>
+        </div>
+        <h3 class="ph">WHAT YOU SEE</h3>
+        <ul class="dots">
+          <li>A compact <b>target panel</b> on the right of your screen shows the mob's name in its <b>con color</b>, its level, its health, and whether it's attacking you.</li>
+          <li>A marker over your target that only you can see.</li>
+          <li>Tank classes get a <b>hate meter</b> that shows who the mob wants and when you need to Taunt.</li>
+        </ul>
+        <h3 class="ph">FIGHTING WITH A TARGET</h3>
+        <ul class="dots">
+          <li><b>Melee abilities</b> fire the moment you select their slot.</li>
+          <li><b>Spells:</b> select the slot, then right-click to cast. A cast bar fills, moving interrupts it, and taking damage might. Spells check range and line of sight to your target.</li>
+          <li><b>Heals</b> land on the player you're looking at. Look away and they go to whoever in your group is hurt most, and they never steal your target.</li>
+          <li><code>/con</code> sizes up your target before you pull.</li>
+        </ul>
+        <h3 class="ph">GROUPS OF 6</h3>
+        <p><code>/invite</code> a friend. Group members near a kill share its XP and named credit, can't hurt each other, and show on your sidebar with their health. Classic roles apply: the tank holds hate, the healer keeps them up, and everyone else assists.</p>
       </div>
 
       <div class="panel" id="loot" hidden>
