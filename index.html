@@ -853,7 +853,8 @@
   (async () => {
     const pill = document.getElementById("st-server"), big = document.getElementById("tile-players"), lbl = document.getElementById("tile-players-l");
     try {
-      const j = await (await fetch("https://api.mcsrvstat.us/3/play.necrowing.dev")).json();
+      // mcstatus.io pings over IPv4 (mcsrvstat tries playit's IPv6 address and fails)
+      const j = await (await fetch("https://api.mcstatus.io/v2/status/java/play.necrowing.dev")).json();
       if (j.online) {
         const on = j.players ? j.players.online : 0, max = j.players ? j.players.max : 0;
         pill.innerHTML = `<i class="dot on"></i><b>${fmt(on)}</b> Online now`;
