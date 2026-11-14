@@ -58,6 +58,17 @@
   }
   .tag { font-family: "Silkscreen", monospace; color: var(--stone-dim); font-size: clamp(14px, 2.6vw, 20px); margin-top: 14px; letter-spacing: 1px; }
 
+  .cta { max-width: 420px; margin: 26px auto 0; display: grid; gap: 10px; }
+  .cta .addr { margin-top: 0; justify-content: center; gap: 14px; }
+  .cta-discord {
+    font-family: "Silkscreen", monospace; font-size: 15px; text-decoration: none; letter-spacing: 1px;
+    color: #fff; background: var(--violet); border: 2px solid var(--violet-hi); padding: 12px 16px; box-shadow: 3px 3px 0 #000;
+  }
+  .cta-discord:hover { background: var(--violet-hi); }
+  .cta-discord:active { transform: translate(2px,2px); box-shadow: none; }
+  .cta-sub { color: var(--muted); font-size: 19px; text-decoration: none; }
+  .cta-sub:hover { color: var(--stone); }
+  @media (max-width: 640px) { main { padding-top: 32px; } .logo { width: 84px; height: 84px; margin-bottom: 12px; } }
   section { margin-top: 56px; }
   h2 { font-family: "Silkscreen", monospace; font-size: 22px; color: var(--violet-hi); margin: 0 0 14px; letter-spacing: 1px; }
 
@@ -190,6 +201,11 @@
     <img class="logo" src="/assets/logo.png" alt="Necrowing cobweb block logo" width="112" height="112">
     <h1>NECROWING</h1>
     <div class="tag">INDIE DEV · BLOCKY WORLDS</div>
+    <div class="cta">
+      <div class="addr"><span id="hero-addr">play.necrowing.dev</span><button class="copy" data-copy="hero-addr">COPY</button></div>
+      <a class="cta-discord" href="https://discord.gg/XgcZg9ujkb" rel="noopener">JOIN THE DISCORD</a>
+      <a class="cta-sub" href="#join">Java + Bedrock · free · how to join ↓</a>
+    </div>
   </header>
 
   <section aria-labelledby="eq">
@@ -368,7 +384,7 @@
 <script>
   // Set the Discord invite here; the button stays hidden until it's filled in.
   const DISCORD_INVITE = "https://discord.gg/XgcZg9ujkb";
-  if (DISCORD_INVITE) { const d = document.getElementById("discord"); d.href = DISCORD_INVITE; d.hidden = false; }
+  if (DISCORD_INVITE) { const d = document.getElementById("discord"); d.href = DISCORD_INVITE; d.hidden = false; document.querySelector(".cta-discord").href = DISCORD_INVITE; }
   document.getElementById("yr").textContent = new Date().getFullYear();
 
   // Classes: mirrors classes.yml / abilities.yml in the server plugin.
