@@ -340,6 +340,15 @@
   footer.foot { text-align: left; }
   .chip { flex-wrap: wrap; justify-content: center; max-width: 100%; }
   @media (max-width: 640px) { .logo { width: 96px; height: 96px; } header.hero { padding-top: 36px; } section.wrap, .cta-band.wrap { margin-top: 80px; } }
+  .nope { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 900px) { .nope { grid-template-columns: 1fr 1fr; } }
+  .no { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; display: flex; flex-direction: column; gap: 4px; }
+  .no .x { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: rgba(248,113,113,.12); color: #f87171; font-weight: 700; margin-bottom: 6px; }
+  .no b { font-size: 17px; color: #fff; }
+  .no span:last-child { color: var(--stone-dim); font-size: 14.5px; }
+  .yes { display: flex; gap: 14px; align-items: flex-start; margin-top: 12px; background: linear-gradient(135deg, rgba(74,222,128,.10), rgba(167,139,250,.08)); border: 1px solid rgba(74,222,128,.3); border-radius: var(--r); padding: 18px 22px; }
+  .yes .ok { flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: rgba(74,222,128,.15); color: var(--ok); font-weight: 700; }
+  .yes p { margin: 4px 0 0; color: var(--stone); }
   .legal { margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); }
 </style>
 </head>
@@ -361,6 +370,7 @@
     <div class="navlinks">
       <a href="#features">Features</a>
       <a href="#join">How to Join</a>
+      <a href="#promise">No P2W</a>
       <a href="#story">Story</a>
       <a href="#faq">FAQ</a>
     </div>
@@ -388,13 +398,13 @@
     <div class="chips-row">
       <span class="chip">Java: <b id="hero-addr">play.necrowing.dev</b></span>
       <span class="chip">Bedrock: <b id="hero-be">bedrock.necrowing.dev</b> Port: <b>58764</b> <button class="copy linkish" data-copy="hero-be">Copy</button></span>
-      <span class="chip">Free · No modpack</span>
+      <span class="chip">Free · No pay-to-win · No modpack</span>
     </div>
   </header>
 
   <div class="stats wrap">
     <div class="stat"><div class="sv">Day <span data-day>1</span></div><div class="sl">SINCE OCT 31, 2026</div></div>
-    <div class="stat"><div class="sv" id="tile-players">–</div><div class="sl" id="tile-players-l">PLAYERS ONLINE</div></div>
+    <div class="stat"><div class="sv" id="tile-players">–</div><div class="sl" id="tile-players-l">SERVER STATUS</div></div>
     <div class="stat"><div class="sv" id="tile-discord">–</div><div class="sl">DISCORD MEMBERS</div></div>
     <div class="stat"><div class="sv">33k+</div><div class="sl">LINES OF CUSTOM CODE</div></div>
   </div>
@@ -577,6 +587,22 @@
     </div>
   </section>
 
+  <section id="promise" class="wrap">
+    <div class="eyebrow">THE OLD-SCHOOL PROMISE</div>
+    <h2>Earned, not bought</h2>
+    <p class="lede">Most servers fund themselves by selling power. This one won't. Every item, title and #1 spot is earned in game, the way MMOs used to work.</p>
+    <div class="nope">
+      <div class="no"><span class="x">✕</span><b>No pay-to-win</b><span>Money can't buy gear, levels or stats.</span></div>
+      <div class="no"><span class="x">✕</span><b>No crates or keys</b><span>No crate keys and no daily key grind.</span></div>
+      <div class="no"><span class="x">✕</span><b>No loot boxes</b><span>Gear drops from mobs and named camps, not from spins.</span></div>
+      <div class="no"><span class="x">✕</span><b>No ranks for sale</b><span>Your title is something you did, not something you bought.</span></div>
+    </div>
+    <div class="yes">
+      <span class="ok">✓</span>
+      <p><b>What you get instead:</b> drops you camped for, a Cleric who rezzed you, a corpse run you survived, and a title that means something. The server is free to play, and every reward is earned the old-school way.</p>
+    </div>
+  </section>
+
   <section id="story" class="wrap">
     <div class="eyebrow">THE STORY SO FAR</div>
     <h2>Built in the open</h2>
@@ -595,7 +621,7 @@
     <h2>Frequently asked</h2>
     <div class="faq">
       <details><summary>What is Necrowing?</summary><p>Necrowing is an indie dev building blocky worlds. The first project is a Minecraft MMO server at play.necrowing.dev, inspired by old-school EverQuest: classes, groups, named camps, loot and corpse runs, on a vanilla base.</p></details>
-      <details><summary>Is it free?</summary><p>Yes. There's no store and nothing to buy.</p></details>
+      <details><summary>Is it free? Is it pay-to-win?</summary><p>It's free, and it isn't pay-to-win. There's no store, no crates, no loot boxes and no ranks for sale. Everything is earned in game.</p></details>
       <details><summary>Do I need mods or a launcher?</summary><p>No. Join with a normal Minecraft client. The only optional mod is <a href="#voice">Simple Voice Chat</a>, if you want proximity voice.</p></details>
       <details><summary>Can I play on Bedrock (phone, console)?</summary><p>Yes. Add <b>bedrock.necrowing.dev</b> with port <b>58764</b> and you'll share the same world as Java players. Voice chat is Java-only for now.</p></details>
       <details><summary>How do I get whitelisted?</summary><p>Join the <a data-discord href="#" rel="noopener">Discord</a> and post your in-game name in #whitelist-requests.</p></details>
@@ -857,8 +883,13 @@
       const j = await (await fetch("https://api.mcstatus.io/v2/status/java/play.necrowing.dev")).json();
       if (j.online) {
         const on = j.players ? j.players.online : 0, max = j.players ? j.players.max : 0;
-        pill.innerHTML = `<i class="dot on"></i><b>${fmt(on)}</b> Online now`;
-        big.textContent = fmt(on); lbl.textContent = `PLAYERS ONLINE · ${max} SLOTS`;
+        if (on > 0) {
+          pill.innerHTML = `<i class="dot on"></i><b>${fmt(on)}</b> Online now`;
+          big.textContent = fmt(on); lbl.textContent = "PLAYERS ONLINE";
+        } else {
+          pill.innerHTML = `<i class="dot on"></i>Server online`;
+          big.textContent = "Online"; lbl.textContent = "SERVER STATUS";
+        }
       } else {
         pill.innerHTML = `<i class="dot off"></i>Server offline · playtests announced in Discord`;
         big.textContent = "Offline"; lbl.textContent = "BETWEEN PLAYTESTS";
